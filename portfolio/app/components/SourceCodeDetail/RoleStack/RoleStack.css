@@ -1,0 +1,207 @@
+/* ============================== Stacked Cards (My Role) - Same as About Me ============================== */
+/* Split Layout for Detail Page */
+@media (max-width: 991px) {
+    #sc-my-role {
+        padding-bottom: 0 !important;
+    }
+}
+
+.sc-role-sticky-header {
+    position: sticky;
+    top: 15vh;
+    padding-right: 40px;
+    z-index: 10;
+}
+
+#sc-my-role .row {
+    align-items: stretch;
+}
+
+.sc-role-stack {
+    max-width: 100%;
+    padding: 0;
+    padding-bottom: 50px;
+}
+
+.stack-container {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    padding: 0 20px;
+    padding-bottom: 50px;
+}
+
+.card-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* Glassmorphism Card Style */
+.stack-item {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 32px;
+    padding: 50px;
+    margin-bottom: 20px;
+    position: relative;
+    /* Transition only for hover and normal state, NOT for scroll-pinning transforms */
+    transition: background 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease, opacity 0.4s ease;
+    width: 100%;
+    box-sizing: border-box;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    will-change: transform, top;
+}
+
+/* Ensure no horizontal shifting during pinning */
+.pin-spacer .stack-item {
+    transition: none !important;
+}
+
+/* Explicit layering for stacked cards to ensure new cards come on top */
+.stack-item:nth-child(1) {
+    z-index: 10;
+}
+
+.stack-item:nth-child(2) {
+    z-index: 11;
+}
+
+.stack-item:nth-child(3) {
+    z-index: 12;
+}
+
+.stack-item:nth-child(4) {
+    z-index: 13;
+}
+
+.stack-item:nth-child(5) {
+    z-index: 14;
+}
+
+/* In a stepped stack, we need consistent spacing to allow the scroll and pin duration */
+@media (min-width: 0px) {
+    .stack-item {
+        margin-bottom: 30px; /* Reduced from 25vh to remove huge gaps */
+    }
+
+    .stack-item:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.stack-item:hover {
+    background: rgba(255, 255, 255, 0.9);
+    border-color: var(--theme-color);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px);
+    z-index: 50 !important;
+    /* Bring hovered card to front */
+}
+
+.stack-year {
+    position: absolute;
+    top: -20px;
+    left: 50px;
+    background: var(--primary-color);
+    color: var(--white-color);
+    font-size: var(--fs-sm);
+    font-weight: 700;
+    padding: 10px 24px;
+    border-radius: var(--radius-2xl);
+    letter-spacing: 1px;
+    z-index: 20;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.stack-content {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+.stack-icon {
+    width: 100px;
+    height: 100px;
+    min-width: 100px;
+    background: var(--body-color);
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s ease;
+    margin-top: 10px;
+}
+
+.stack-item:hover .stack-icon {
+    background: var(--theme-color);
+    transform: rotate(-10deg);
+}
+
+.stack-icon svg {
+    width: 40px;
+    height: 40px;
+    color: var(--theme-color);
+    transition: all 0.4s ease;
+}
+
+.stack-item:hover .stack-icon svg {
+    color: var(--white-color);
+}
+
+.stack-text {
+    flex-grow: 1;
+}
+
+.stack-text h3 {
+    font: var(--small-heading-font);
+    color: var(--heading-color);
+    margin: 0 0 10px 0;
+    line-height: 1.2;
+}
+
+.stack-company {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--body-color);
+    color: var(--theme-color);
+    font: var(--body-font);
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: var(--radius-lg);
+    margin-bottom: 12px;
+}
+
+.stack-text p {
+    font: var(--body-font);
+    color: var(--para-color);
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* responsive */
+@media (max-width: 991px) {
+    .stack-content {
+        flex-direction: column;
+    }
+
+    .sc-role-sticky-header {
+        position: relative;
+        top: 0;
+        padding-right: 0;
+        margin-bottom: 40px;
+    }
+
+    .sc-role-stack {
+        padding-bottom: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .stack-container {
+        padding-bottom: 0;
+    }
+}

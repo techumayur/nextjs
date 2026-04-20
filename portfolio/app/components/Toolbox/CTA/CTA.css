@@ -1,0 +1,217 @@
+/* =========================================================================
+   6. Closing CTA Section - Home-Style Modern Redesign
+   ========================================================================= */
+#toolbox-cta {
+    padding-bottom: 6rem;
+}
+.toolbox-modern-cta.cta-card {
+    background: var(--white-color);
+    border-radius: 32px;
+    padding: 0;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+}
+.toolbox-modern-cta .cta-pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.04;
+    pointer-events: none;
+    background-image:
+        repeating-linear-gradient(45deg, var(--theme-color) 0, var(--theme-color) 1px, transparent 0, transparent 50%),
+        repeating-linear-gradient(-45deg, var(--primary-color) 0, var(--primary-color) 1px, transparent 0, transparent 50%);
+    background-size: 20px 20px;
+}
+.toolbox-modern-cta .cta-content-wrapper {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    align-items: center;
+    gap: 60px;
+    padding: 70px;
+    position: relative;
+    z-index: 10;
+}
+.toolbox-modern-cta .cta-left {
+    position: relative;
+    text-align: left;
+}
+.toolbox-modern-cta .cta-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--body-color);
+    padding: 10px 22px;
+    border-radius: 50px;
+    font: var(--badge-font);
+    font-weight: 700;
+    color: var(--theme-color);
+    margin-bottom: 28px;
+    border: 2px solid var(--border-color);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.toolbox-modern-cta h3 {
+    font-size: clamp(2.3rem, 4vw, var(--fs-3xl));
+    font-weight: 900;
+    color: var(--heading-color);
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+.toolbox-modern-cta .cta-highlight {
+    color: var(--primary-color);
+    position: relative;
+    display: inline-block;
+}
+.toolbox-modern-cta .cta-highlight::after {
+    content: '';
+    position: absolute;
+    bottom: 4px;
+    left: 0;
+    right: 0;
+    height: 10px;
+    background: var(--primary-color);
+    opacity: 0.15;
+    z-index: -1;
+}
+.toolbox-modern-cta p {
+    font: var(--para-font);
+    color: var(--para-color);
+    margin-bottom: 35px;
+    line-height: 1.7;
+}
+.toolbox-modern-cta .cta-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 40px;
+}
+.toolbox-modern-cta .cta-stat-box {
+    background: var(--body-color);
+    padding: 15px;
+    border-radius: 16px;
+    text-align: center;
+    border: 1px solid var(--border-color);
+    transition: all 0.4s ease;
+}
+.toolbox-modern-cta .cta-stat-box:hover {
+    transform: translateY(-4px);
+    border-color: var(--primary-color);
+    background: var(--white-color);
+}
+.toolbox-modern-cta .cta-stat-box strong {
+    display: block;
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--theme-color);
+    margin-bottom: 4px;
+}
+.toolbox-modern-cta .cta-stat-box span {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--para-color);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.toolbox-modern-cta .cta-buttons-group {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+.toolbox-modern-cta .cta-right {
+    display: flex;
+    justify-content: center;
+}
+.toolbox-modern-cta .cta-visual-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    width: 100%;
+}
+.toolbox-modern-cta .cta-visual-card {
+    background: var(--white-color);
+    border-radius: 20px;
+    padding: 25px;
+    border: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: all 0.4s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.02);
+}
+.toolbox-modern-cta .cta-visual-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    border-color: var(--theme-color);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+.toolbox-modern-cta .cta-visual-icon {
+    width: 60px;
+    height: 60px;
+    background: rgba(11, 102, 106, 0.05);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+.toolbox-modern-cta .cta-visual-icon img {
+    width: 25px;
+    height: 25px;
+}
+.toolbox-modern-cta .cta-visual-text strong {
+    display: block;
+    font-size: 0.95rem;
+    color: var(--heading-color);
+    margin-bottom: 4px;
+}
+.toolbox-modern-cta .cta-visual-text span {
+    font-size: 0.8rem;
+    color: var(--para-color);
+}
+@media (max-width: 1199px) {
+    .toolbox-modern-cta .cta-content-wrapper {
+        gap: 40px;
+        padding: 50px;
+    }
+}
+@media (max-width: 991px) {
+    .toolbox-modern-cta .cta-content-wrapper {
+        grid-template-columns: 1fr;
+        padding: 40px;
+        gap: 50px;
+    }
+    .toolbox-modern-cta .cta-left {
+        text-align: center;
+    }
+    .toolbox-modern-cta .cta-badge {
+        justify-content: center;
+    }
+    .toolbox-modern-cta .cta-buttons-group {
+        justify-content: center;
+    }
+    .toolbox-modern-cta .cta-stats-grid {
+        max-width: 500px;
+        margin-inline: auto;
+    }
+}
+@media (max-width: 767px) {
+    .toolbox-modern-cta .cta-stats-grid {
+        grid-template-columns: 1fr;
+    }
+    .toolbox-modern-cta .cta-visual-grid {
+        grid-template-columns: 1fr;
+    }
+    .toolbox-modern-cta .cta-buttons-group {
+        flex-direction: column;
+        align-items: center;
+    }
+    .toolbox-modern-cta .cta-buttons-group a {
+        width: 100%;
+        max-width: 300px;
+        justify-content: center;
+    }
+}

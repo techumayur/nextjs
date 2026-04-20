@@ -1,0 +1,55 @@
+/* ================================
+   Core Values Section 
+================================ */
+#core-values .value-card {
+    background-color: var(--white-color, #fff);
+    border-radius: 15px;
+    padding: 2.5rem;
+    text-align: center;
+    height: 100%;
+    box-shadow: var(--shadow-sm, 0 4px 12px rgba(0, 0, 0, 0.06));
+    transition: all 0.45s ease;
+    border: 1px solid var(--border-color, #e8e8e8);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#core-values .value-card:hover {
+    box-shadow: var(--shadow-md, 0 12px 30px rgba(0, 0, 0, 0.10));
+    transform: translateY(-4px);
+    border-color: var(--primary-color, #FF7518);
+}
+
+#core-values .value-icon {
+    width: 70px;
+    height: 70px;
+    background-color: color-mix(in srgb, var(--theme-color, #096C6C) 10%, transparent);
+    border-radius: var(--radius-full, 50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    color: var(--theme-color, #096C6C);
+    transition: all 0.45s ease;
+}
+
+#core-values .value-card:hover .value-icon {
+    background-color: var(--theme-color, #096C6C);
+}
+
+#core-values .value-card:hover .value-icon img {
+    filter: brightness(0) invert(1);
+}
+
+#core-values .value-card h4 {
+    font: var(--small-heading-font);
+    color: var(--heading-color, #1C1C1C);
+    margin-bottom: 1rem;
+}
+
+#core-values .value-card p {
+    font: var(--para-font);
+    color: var(--para-color, #5F6368);
+    margin-bottom: 0;
+}

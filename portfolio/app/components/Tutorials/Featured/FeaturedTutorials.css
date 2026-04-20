@@ -1,0 +1,249 @@
+/* Featured Section */
+#featured-tutorials {
+    background-color: var(--body-color);
+}
+
+.tutorial-card {
+    position: relative;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    background: var(--white-color);
+    box-shadow: var(--shadow-sm);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid var(--border-color);
+}
+
+.tutorial-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-color);
+}
+
+/* Featured Large Card */
+.tutorial-card--featured {
+    display: flex;
+    flex-direction: column;
+}
+
+.tutorial-card__image-wrap {
+    position: relative;
+    height: 300px;
+    overflow: hidden;
+}
+
+.tutorial-card__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.tutorial-card:hover .tutorial-card__image {
+    transform: scale(1.05);
+}
+
+.tutorial-card__badge {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 6px 15px;
+    background: var(--primary-color);
+    color: var(--white-color);
+    font: var(--badge-font);
+    font-size: 0.75rem;
+    font-weight: 700;
+    border-radius: var(--radius-full);
+    z-index: 2;
+    letter-spacing: 1px;
+}
+
+.tutorial-card__overlay {
+    position: absolute;
+    inset: 0;
+    background: color-mix(in srgb, var(--black-color) 30%, transparent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.tutorial-card:hover .tutorial-card__overlay {
+    opacity: 1;
+}
+
+.play-btn-circle {
+    width: 60px;
+    height: 60px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white-color);
+    font-size: 1.2rem;
+    transform: scale(0.8);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.tutorial-card:hover .play-btn-circle {
+    transform: scale(1);
+}
+
+.tutorial-card__content {
+    padding: 30px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.tutorial-card__meta {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.tutorial-card__tag {
+    font: var(--small-badge-font);
+    color: var(--theme-color);
+    background: color-mix(in srgb, var(--theme-color) 10%, transparent);
+    padding: 4px 12px;
+    border-radius: var(--radius-full);
+}
+
+.tutorial-card__duration {
+    font: var(--fs-xs);
+    color: var(--para-color);
+    font-size: 0.85rem;
+}
+
+.tutorial-card__title {
+    font: var(--sub-heading-font);
+    margin-bottom: 15px;
+    line-height: 1.3;
+}
+
+.tutorial-card__excerpt {
+    font-size: 0.95rem;
+    color: var(--para-color);
+    margin-bottom: 25px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.tutorial-card__footer {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color);
+}
+
+.tutorial-card__author {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.85rem;
+    color: var(--heading-color);
+    font-weight: 500;
+}
+
+.tutorial-card__author img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--gray-bg);
+}
+
+/* Mini Card Styles */
+.tutorial-card--mini {
+    padding: 12px;
+}
+
+.tutorial-card__image-mini-wrap {
+    position: relative;
+    width: 140px;
+    height: 120px;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.tutorial-card__image-mini {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.tutorial-card--mini:hover .tutorial-card__image-mini {
+    transform: scale(1.1);
+}
+
+.play-btn-mini {
+    position: absolute;
+    inset: 0;
+    background: color-mix(in srgb, var(--black-color) 30%, transparent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white-color);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.tutorial-card--mini:hover .play-btn-mini {
+    opacity: 1;
+}
+
+.tutorial-card__content-mini {
+    padding-left: 20px;
+}
+
+.tutorial-card__tag--sm {
+    font-size: 0.65rem;
+    margin-bottom: 8px;
+    display: inline-block;
+}
+
+.tutorial-card__title-mini {
+    font: var(--small-heading-font);
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.tutorial-card__meta-mini {
+    display: flex;
+    gap: 12px;
+    font-size: 0.75rem;
+    color: var(--para-color);
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+    .tutorial-card__image-wrap {
+        height: 250px;
+    }
+}
+
+@media (max-width: 575px) {
+    .tutorial-card__footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .tutorial-card__image-mini-wrap {
+        width: 100px;
+    }
+}

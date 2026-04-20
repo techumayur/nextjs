@@ -1,0 +1,135 @@
+/* =====================================================================
+   FAQ Section Styles (Extracted from home.css)
+   ===================================================================== */
+#pd-faq .faq-accordion-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#pd-faq .accordion-item {
+    background: var(--white-color);
+    border: 2px solid var(--border-color);
+    border-radius: 20px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+#pd-faq .accordion-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 0;
+    border: 2px solid var(--theme-color);
+    transition: height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1;
+    border-radius: 16px;
+    border-top: 0;
+    border-right: 0;
+    border-bottom: 0;
+}
+
+#pd-faq .accordion-item:hover {
+    transform: translateX(8px);
+    box-shadow: var(--card-shadow-hover);
+    border-color: var(--theme-color);
+}
+
+#pd-faq .accordion-item:hover::before {
+    height: 100%;
+}
+
+#pd-faq .accordion-header {
+    position: relative;
+}
+
+#pd-faq .accordion-button {
+    padding: 28px 32px;
+    border: none;
+    box-shadow: none !important;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font: var(--small-heading-font);
+    color: var(--heading-color);
+    transition: all 0.45s ease;
+    position: relative;
+    line-height: normal;
+}
+
+#pd-faq .accordion-button:not(.collapsed) {
+    color: var(--theme-color);
+}
+
+#pd-faq .accordion-button::after {
+    display: none;
+}
+
+#pd-faq .faq-icon-box {
+    width: 56px;
+    height: 56px;
+    background: var(--body-color);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.4s ease;
+    border: 2px solid var(--border-color);
+}
+
+#pd-faq .accordion-button:not(.collapsed) .faq-icon-box img,
+#pd-faq .accordion-item:hover .faq-icon-box img {
+    filter: brightness(0) invert(1);
+}
+
+#pd-faq .accordion-button:not(.collapsed) .faq-icon-box,
+#pd-faq .accordion-item:hover .faq-icon-box {
+    background: var(--theme-color);
+    border-color: var(--theme-color);
+    transform: rotate(5deg) scale(1.05);
+}
+
+#pd-faq .faq-number {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    background: var(--body-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font: 600 0.875rem/1 'DM Sans', sans-serif;
+    color: var(--theme-color);
+    transition: all 0.45s ease;
+    z-index: 2;
+}
+
+#pd-faq .accordion-button:not(.collapsed)~.faq-number,
+#pd-faq .accordion-item:hover .faq-number {
+    background: var(--primary-color);
+    color: var(--white-color);
+    transform: scale(1.1);
+}
+
+#pd-faq .accordion-body {
+    padding: 0 32px 28px 108px;
+    font: var(--para-font);
+    color: var(--para-color);
+    line-height: 1.8;
+}
+
+#pd-faq .accordion-button span {
+    max-width: 80%;
+    display: block;
+    white-space: normal;
+    line-height: 1.35;
+}
+
+#pd-faq .faq-accordion-wrapper .row {
+    align-items: stretch;
+}

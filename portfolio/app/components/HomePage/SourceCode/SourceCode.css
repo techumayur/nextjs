@@ -1,0 +1,713 @@
+/* ==============================
+  Home Source Code Section 
+   ============================== */
+/* Bento Grid Layout */
+#home-source-code .bento-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+/* Bento Card Base */
+#home-source-code .bento-card {
+    background: var(--white-color);
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    border: 1px solid var(--border-color);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+#home-source-code .bento-card:hover {
+    box-shadow: var(--card-shadow-hover);
+    transform: translateY(-3px);
+    border-color: color-mix(in srgb, var(--primary-color) 20%, transparent);
+}
+
+/* Bento Card Sizes */
+#home-source-code .bento-large {
+    grid-column: span 8;
+}
+
+#home-source-code .bento-medium {
+    grid-column: span 4;
+}
+
+#home-source-code .bento-small {
+    grid-column: span 6;
+}
+
+/* Image Section */
+#home-source-code .bento-image {
+    position: relative;
+    overflow: hidden;
+    background: var(--gray-bg);
+    height: 320px;
+    flex-shrink: 0;
+}
+
+#home-source-code .bento-large .bento-image {
+    height: 380px;
+}
+
+#home-source-code .bento-medium .bento-image {
+    height: 260px;
+}
+
+#home-source-code .bento-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, color-mix(in srgb, var(--theme-color) 8%, transparent) 0%, color-mix(in srgb, var(--primary-color) 8%, transparent) 100%);
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+#home-source-code .bento-card:hover .bento-image::before {
+    opacity: 1;
+}
+
+#home-source-code .bento-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+#home-source-code .bento-card:hover .bento-image img {
+    transform: scale(1.08);
+}
+
+/* Content Section */
+#home-source-code .bento-content {
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+#home-source-code .bento-large .bento-content {
+    padding: 40px;
+}
+
+#home-source-code .code-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+#home-source-code .code-badge {
+    font: var(--badge-font);
+    padding: 7px 16px;
+    border-radius: 18px;
+    display: inline-block;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+}
+
+#home-source-code .badge-tech {
+    background-color: color-mix(in srgb, var(--theme-color) 12%, transparent);
+    color: var(--theme-color);
+}
+
+#home-source-code .badge-level {
+    background-color: color-mix(in srgb, var(--primary-color) 12%, transparent);
+    color: var(--primary-color);
+}
+
+#home-source-code .bento-content h3 {
+    font: var(--small-heading-font);
+    color: var(--heading-color);
+    margin-bottom: 16px;
+    transition: color 0.3s ease;
+    line-height: 1.4;
+}
+
+#home-source-code .bento-card:hover .bento-content h3 {
+    color: var(--theme-color);
+}
+
+#home-source-code .bento-description {
+    font: var(--para-font);
+    color: var(--para-color);
+    margin-bottom: 24px;
+    line-height: 1.75;
+    flex-grow: 1;
+}
+
+/* Action Buttons */
+#home-source-code .bento-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 20px;
+    margin-top: auto;
+    border-top: 1px solid var(--border-color);
+}
+
+#home-source-code .bento-actions {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+#home-source-code .icon-btn {
+    width: 46px;
+    height: 46px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    transition: all 0.45s ease;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+#home-source-code .btn-view {
+    background-color: var(--theme-color);
+    color: var(--white-color);
+}
+
+#home-source-code .btn-view:hover {
+    background-color: color-mix(in srgb, var(--theme-color) 80%, black);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px color-mix(in srgb, var(--theme-color) 35%, transparent);
+}
+
+#home-source-code .btn-download {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+}
+
+#home-source-code .btn-download:hover {
+    background-color: color-mix(in srgb, var(--primary-color) 80%, black);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px color-mix(in srgb, var(--primary-color) 35%, transparent);
+}
+
+/* Stats Badge */
+#home-source-code .code-stats {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+#home-source-code .stat-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font: var(--small-btn-font);
+    color: var(--para-color);
+}
+
+#home-source-code .stat-item i {
+    color: var(--primary-color);
+    font-size: 14px;
+}
+
+/* Feature Tag */
+#home-source-code .feature-tag {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    padding: 8px 18px;
+    border-radius: 24px;
+    font: var(--badge-font);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    z-index: 2;
+    box-shadow: 0 6px 16px color-mix(in srgb, var(--primary-color) 40%, transparent);
+}
+
+/* Decorative Elements */
+
+#home-source-code .circle-1 {
+    width: 400px;
+    height: 400px;
+    background-color: var(--theme-color);
+    top: -150px;
+    right: -150px;
+}
+
+#home-source-code .circle-2 {
+    width: 350px;
+    height: 350px;
+    background-color: var(--primary-color);
+    bottom: -120px;
+    left: -120px;
+}
+
+/* CTA Card Styles */
+#home-source-code .cta-card {
+    background: var(--white-color);
+    border-radius: 32px;
+    padding: 0;
+    box-shadow: 0 20px 60px color-mix(in srgb, var(--black-color) 8%, transparent);
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+}
+
+#home-source-code .cta-pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.03;
+    pointer-events: none;
+    background-image:
+        repeating-linear-gradient(45deg, var(--theme-color) 0, var(--theme-color) 1px, transparent 0, transparent 50%),
+        repeating-linear-gradient(-45deg, var(--primary-color) 0, var(--primary-color) 1px, transparent 0, transparent 50%);
+    background-size: 20px 20px;
+}
+
+#home-source-code .cta-content-wrapper {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    align-items: center;
+    gap: 80px;
+    padding: 70px;
+    position: relative;
+    z-index: 1;
+}
+
+#home-source-code .cta-left {
+    position: relative;
+}
+
+#home-source-code .cta-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--body-color);
+    padding: 10px 22px;
+    border-radius: 50px;
+    font: var(--badge-font);
+    font-weight: 700;
+    color: var(--theme-color);
+    margin-bottom: 28px;
+    border: 2px solid var(--border-color);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+#home-source-code .cta-badge i {
+    font-size: 14px;
+    color: var(--primary-color);
+}
+
+#home-source-code .cta-card h3 {
+    font: var(--sub-heading-font);
+    color: var(--heading-color);
+    margin-bottom: 20px;
+    line-height: 1.3;
+}
+
+#home-source-code .cta-highlight {
+    color: var(--primary-color);
+    position: relative;
+    display: inline-block;
+}
+
+#home-source-code .cta-highlight::after {
+    content: '';
+    position: absolute;
+    bottom: 2px;
+    left: 0;
+    right: 0;
+    height: 12px;
+    background: var(--primary-color);
+    opacity: 0.15;
+    z-index: -1;
+}
+
+#home-source-code .cta-card p {
+    font: var(--para-font);
+    color: var(--para-color);
+    margin-bottom: 35px;
+    line-height: 1.8;
+}
+
+#home-source-code .cta-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 40px;
+}
+
+#home-source-code .cta-stat-box {
+    background: var(--body-color);
+    padding: 20px;
+    border-radius: 16px;
+    text-align: center;
+    border: 1px solid var(--border-color);
+    transition: all 0.45s ease;
+}
+
+#home-source-code .cta-stat-box:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+    border-color: var(--primary-color);
+}
+
+#home-source-code .cta-stat-box strong {
+    display: block;
+    font-size: clamp(1.5rem, 2vw, 2rem);
+    font-weight: 700;
+    color: var(--theme-color);
+    margin-bottom: 8px;
+}
+
+#home-source-code .cta-stat-box span {
+    font: var(--small-btn-font);
+    color: var(--para-color);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+#home-source-code .cta-right {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px;
+}
+
+#home-source-code .cta-visual-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    width: 100%;
+    max-width: 380px;
+}
+
+#home-source-code .cta-visual-card {
+    background: var(--body-color);
+    border-radius: 20px;
+    padding: 28px;
+    border: 2px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    position: relative;
+}
+
+#home-source-code .cta-visual-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 16px 40px color-mix(in srgb, var(--black-color) 8%, transparent);
+    border-color: var(--primary-color);
+}
+
+#home-source-code .cta-visual-card:nth-child(1) {
+    grid-column: span 2;
+    background: var(--theme-color);
+    border-color: var(--theme-color);
+}
+
+#home-source-code .cta-visual-card:nth-child(1) img {
+    filter: brightness(0) invert(1);
+}
+
+#home-source-code .cta-visual-card:nth-child(1):hover {
+    background: #094d50;
+    border-color: #094d50;
+}
+
+#home-source-code .cta-visual-icon {
+    width: 70px;
+    height: 70px;
+    background: var(--white-color);
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    color: var(--theme-color);
+    box-shadow: 0 8px 20px color-mix(in srgb, var(--black-color) 10%, transparent);
+}
+
+#home-source-code .cta-visual-card:nth-child(1) .cta-visual-icon {
+    background: rgba(255, 255, 255, 0.2);
+    color: var(--white-color);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+#home-source-code .cta-visual-text {
+    text-align: center;
+}
+
+#home-source-code .cta-visual-text strong {
+    display: block;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--heading-color);
+    margin-bottom: 6px;
+}
+
+#home-source-code .cta-visual-card:nth-child(1) .cta-visual-text strong {
+    color: var(--white-color);
+    font-size: 1.5rem;
+}
+
+#home-source-code .cta-visual-text span {
+    font: var(--small-btn-font);
+    color: var(--para-color);
+}
+
+#home-source-code .cta-visual-card:nth-child(1) .cta-visual-text span {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+#home-source-code .cta-visual-card:nth-child(2),
+#home-source-code .cta-visual-card:nth-child(3) {
+    min-height: 180px;
+}
+
+#home-source-code .cta-visual-card:nth-child(2) .cta-visual-icon {
+    color: var(--primary-color);
+}
+
+#home-source-code .cta-visual-card:nth-child(3) .cta-visual-icon {
+    color: #5C86FF;
+}
+
+#home-source-code .bento-actions .btn-view img,
+#home-source-code .btn-download img {
+    filter: brightness(9.5);
+}
+
+#home-source-code .stat-item span {
+    padding-top: 5px;
+}
+
+/* Tablets Portrait (768px – 991px) */
+@media (max-width: 991px) {
+
+
+    #home-source-code .cta-content-wrapper {
+        grid-template-columns: 1fr;
+        gap: 50px;
+        padding: 50px 40px;
+    }
+
+    #home-source-code .cta-stats-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    #home-source-code .cta-visual-grid {
+        max-width: 100%;
+    }
+
+    #home-source-code .bento-grid {
+        gap: 24px;
+    }
+
+    #home-source-code .bento-large,
+    #home-source-code .bento-medium,
+    #home-source-code .bento-small {
+        grid-column: span 6;
+    }
+
+    #home-source-code .bento-image {
+        height: 280px;
+    }
+
+    #home-source-code .bento-large .bento-image {
+        height: 320px;
+    }
+
+    #home-source-code .bento-content {
+        padding: 28px;
+    }
+
+    #home-source-code .bento-large .bento-content {
+        padding: 32px;
+    }
+
+    #home-source-code .bento-footer .code-stats {
+        flex-direction: column;
+        gap: 0;
+        align-items: flex-start;
+    }
+}
+
+/* Mobile Landscape (576px – 767px) */
+@media (max-width: 767px) {
+
+
+    #home-source-code .cta-content-wrapper {
+        padding: 40px 30px;
+        gap: 40px;
+    }
+
+    #home-source-code .cta-stats-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+    }
+
+    #home-source-code .cta-stat-box {
+        padding: 16px 12px;
+    }
+
+    #home-source-code .cta-stat-box strong {
+        font-size: 1.3rem;
+    }
+
+    #home-source-code .cta-button {
+        width: 100%;
+        justify-content: center;
+    }
+
+    #home-source-code .cta-visual-grid {
+        gap: 16px;
+    }
+
+    #home-source-code .cta-visual-card:nth-child(2),
+    #home-source-code .cta-visual-card:nth-child(3) {
+        min-height: 160px;
+    }
+
+    #home-source-code .bento-grid {
+        gap: 20px;
+    }
+
+    #home-source-code .bento-large,
+    #home-source-code .bento-medium,
+    #home-source-code .bento-small {
+        grid-column: span 12;
+    }
+
+    #home-source-code .bento-image {
+        height: 240px;
+    }
+
+    #home-source-code .bento-large .bento-image {
+        height: 260px;
+    }
+
+    #home-source-code .bento-content {
+        padding: 24px;
+    }
+
+    #home-source-code .bento-large .bento-content {
+        padding: 28px;
+    }
+
+    #home-source-code .bento-footer {
+        /* flex-direction: column; */
+        gap: 16px;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    #home-source-code .cta-left {
+        text-align: center;
+    }
+
+    #home-source-code {
+        padding-bottom: 0;
+    }
+}
+
+/* Mobile Portrait (≤575px) */
+@media (max-width: 575px) {
+    #home-source-code .cta-content-wrapper {
+        padding: 35px 25px;
+        gap: 35px;
+    }
+
+    #home-source-code .cta-badge {
+        font-size: 0.65rem;
+        padding: 8px 18px;
+    }
+
+    #home-source-code .cta-card h3 {
+        font-size: 1.4rem;
+    }
+
+    #home-source-code .cta-card p {
+        font-size: 0.95rem;
+    }
+
+    #home-source-code .cta-stats-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    #home-source-code .cta-button {
+        padding: 14px 28px;
+        font-size: 0.9rem;
+    }
+
+    #home-source-code .cta-visual-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    #home-source-code .cta-visual-card:nth-child(1) {
+        grid-column: span 1;
+    }
+
+    #home-source-code .cta-visual-card:nth-child(2),
+    #home-source-code .cta-visual-card:nth-child(3) {
+        min-height: 140px;
+    }
+
+    #home-source-code .cta-visual-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 28px;
+    }
+
+    #home-source-code .bento-grid {
+        gap: 16px;
+    }
+
+    #home-source-code .icon-btn {
+        width: 42px;
+        height: 42px;
+        font-size: 16px;
+    }
+
+    #home-source-code .bento-image {
+        height: 220px;
+    }
+
+    #home-source-code .bento-content {
+        padding: 20px;
+    }
+
+    #home-source-code .code-badges {
+        gap: 8px;
+    }
+
+    #home-source-code .code-badge {
+        padding: 6px 14px;
+        font-size: 0.65rem;
+    }
+
+    #home-source-code .cta-card {
+        margin-top: 2rem;
+    }
+}

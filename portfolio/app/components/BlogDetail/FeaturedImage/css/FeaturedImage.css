@@ -1,0 +1,26 @@
+/* Featured Blog Image Styling */
+.blog-featured-image-wrapper {
+    position: relative;
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
+    margin-top: 0;
+    background: #f0f0f0;
+}
+
+.blog-featured-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.blog-featured-image-wrapper:hover .blog-featured-image {
+    transform: scale(1.03);
+}
+
+/* Featured Image Section Spacing */
+.featured-image-section {
+    padding: 1rem 0 !important;
+    /* Equal top and bottom spacing */
+}

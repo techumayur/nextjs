@@ -1,0 +1,54 @@
+#tutorials-banner {
+    position: relative;
+    padding: 180px 0 120px;
+    background-size: cover !important;
+    background-position: center !important;
+}
+
+.banner-content-wrapper h1 {
+    font-size: clamp(2.5rem, 8vw, 4.5rem);
+    color: var(--white-color);
+    margin: 20px 0;
+    line-height: 1.1;
+    font-weight: 800;
+}
+
+.banner-content-wrapper p {
+    font-size: 1.25rem;
+    color: color-mix(in srgb, var(--white-color) 90%, transparent);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.banner-scroll-indicator {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.scroll-mouse {
+    width: 26px;
+    height: 42px;
+    border: 2px solid var(--white-color);
+    border-radius: 20px;
+    position: relative;
+}
+
+.scroll-mouse::before {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    width: 4px;
+    height: 8px;
+    background: var(--white-color);
+    border-radius: 2px;
+    transform: translateX(-50%);
+    animation: mouseScroll 1.5s infinite;
+}
+
+@keyframes mouseScroll {
+    0% { transform: translate(-50%, 0); opacity: 1; }
+    100% { transform: translate(-50%, 15px); opacity: 0; }
+}

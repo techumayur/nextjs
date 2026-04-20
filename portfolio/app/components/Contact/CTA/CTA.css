@@ -1,0 +1,6 @@
+/* Contact CTA uses the shared `.cta-2` design system from globals.
+   Only contact-page-specific overrides go here. */
+
+#contact-closing-cta.cta-2 {
+    /* No overrides needed — inherits shared cta-2 styles */
+}

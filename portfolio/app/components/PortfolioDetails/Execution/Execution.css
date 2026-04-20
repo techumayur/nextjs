@@ -1,0 +1,182 @@
+/* ==========================================================================
+   4. Execution Process Flow (The Visual Journey)
+   ========================================================================= */
+.process-flow-section {
+    position: relative;
+}
+
+.process-flow-container {
+    display: block;
+    width: 100%;
+    position: relative;
+    padding-bottom: 50px;
+    /* Space for swiper pagination dots */
+    padding-top: 20px;
+    /* Space for hover animation to not cut off */
+    margin-top: 10px;
+    overflow: visible;
+    /* Prevent Swiper from clipping hover animation */
+}
+
+@media (max-width: 768px) {
+    .process-flow-container {
+        margin-top: 0;
+        padding-top: 10px;
+    }
+}
+
+/* Connecting Line */
+.process-flow-container::before {
+    content: '';
+    position: absolute;
+    top: 70px;
+    left: 10%;
+    right: 10%;
+    height: 2px;
+    background: repeating-linear-gradient(90deg, var(--border-color), var(--border-color) 10px, transparent 10px, transparent 20px);
+    z-index: 0;
+}
+
+.process-node {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+}
+
+.node-icon-wrapper {
+    width: 100px;
+    height: 100px;
+    background: var(--white-color);
+    border: 2px solid var(--border-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 30px;
+    transition: all 0.5s ease;
+    box-shadow: var(--shadow-sm);
+}
+
+
+.node-icon-wrapper img {
+    font-size: 2rem;
+    color: var(--heading-color);
+    transition: all 0.3s ease;
+}
+
+.process-node:hover .node-icon-wrapper {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    transform: translateY(-10px) rotate(10deg);
+    box-shadow: 0 15px 30px color-mix(in srgb, var(--primary-color) 30%, transparent);
+}
+
+.node-content h2 {
+    font: var(--sub-heading-font);
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    color: var(--heading-color);
+}
+
+.node-content p {
+    font-size: 0.95rem;
+    color: var(--para-color);
+    line-height: 1.5;
+}
+
+/* Animation for the flow line */
+
+/* Custom Pagination styling */
+.process-flow-container .swiper-pagination-bullet-active {
+    background-color: var(--primary-color);
+}
+
+.process-flow-container .swiper-pagination {
+    bottom: 0px;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+
+    .process-flow-container {
+        padding-bottom: 50px;
+        /* Keep space for pagination */
+    }
+
+    .process-flow-container::before {
+        display: none;
+    }
+}
+
+
+/* Neutralize the tablet padding that home.css applies to #portfolio-project-overview.
+   On this page that ID is on a div.row, not a section, so we must reset it. */
+@media (max-width: 991px) {
+    #portfolio-project-overview {
+        padding: 0 !important;
+    }
+
+    #portfolio-project-overview .mode-toggle {
+        width: 50px;
+        height: 25px;
+    }
+
+    #portfolio-project-overview .mode-toggle-slider {
+        width: 18px;
+        height: 18px;
+    }
+
+    #portfolio-project-overview .mode-toggle.active .mode-toggle-slider {
+        transform: translateX(23px);
+    }
+}
+
+@media (max-width: 768px) {
+    .cards-interactive-area {
+        cursor: auto;
+        /* Return to normal cursor on mobile */
+    }
+
+    .custom-drag-cursor {
+        display: none !important;
+        /* Hide custom cursor on touch */
+    }
+
+    .cards-slider-2026 {
+        cursor: grab;
+        padding: 20px 0;
+        width: 100%;
+        overflow: visible;
+        /* Prevent mobile clipping */
+    }
+
+    .brutalist-card {
+        width: 85%;
+        /* Let cards shrink to fit mobile width */
+        height: 350px;
+        background: transparent;
+        box-shadow: none;
+        border: none;
+    }
+
+    .cards-slider-2026:active {
+        cursor: grabbing;
+    }
+
+    .card-caption {
+        bottom: 10px;
+        left: 10px;
+        padding: 10px 15px;
+        box-shadow: 0 5px 15px color-mix(in srgb, var(--black-color) 10%, transparent);
+    }
+
+    .step-num {
+        font-size: 1.1rem;
+        /* Slightly bigger on mobile */
+    }
+
+    .step-text {
+        font-size: 1.3rem;
+        /* Bigger font on mobile */
+    }
+}

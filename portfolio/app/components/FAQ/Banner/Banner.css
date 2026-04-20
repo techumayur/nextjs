@@ -1,0 +1,35 @@
+.inner-banner {
+    padding: 160px 0 100px;
+    position: relative;
+    overflow: hidden;
+    background-size: cover !important;
+    background-position: center !important;
+}
+
+.banner-content-wrapper {
+    position: relative;
+    z-index: 5;
+}
+
+.banner-content-wrapper h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: var(--white-color);
+    margin-bottom: 20px;
+}
+
+.banner-content-wrapper p {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+@media (max-width: 767px) {
+    .banner-content-wrapper h1 {
+        font-size: 2.25rem;
+    }
+    .banner-content-wrapper p {
+        font-size: 1rem;
+    }
+}

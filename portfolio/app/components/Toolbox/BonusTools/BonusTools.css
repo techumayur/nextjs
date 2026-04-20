@@ -1,0 +1,190 @@
+/* =========================================================================
+   5. Bonus Tools — Premium Dashboard Layout (Modern & Unique)
+   ========================================================================= */
+.bonus-dashboard {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: minmax(180px, auto);
+    gap: 1.5rem;
+    padding-bottom: 2rem;
+}
+
+/* Base Widget Card */
+.bonus-widget {
+    background: var(--white-color);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 28px;
+    padding: 24px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.bonus-widget:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+    border-color: color-mix(in srgb, var(--primary-color) 25%, transparent);
+}
+
+/* Large Widget (Bento span) */
+.bonus-widget--large {
+    grid-column: span 2;
+    grid-row: span 2;
+    padding: 32px;
+    background: linear-gradient(135deg, #ffffff 0%, #fdfdfd 100%);
+}
+
+.widget-inner {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Hero Content */
+.widget-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 24px;
+}
+
+.widget-icon-bg {
+    width: 60px;
+    height: 60px;
+    background: var(--gray-bg);
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.5s ease;
+}
+
+.bonus-widget:hover .widget-icon-bg {
+    transform: scale(1.1) rotate(-4deg);
+}
+
+.widget-tag {
+    font-size: 0.65rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 6px 14px;
+    background: color-mix(in srgb, var(--primary-color) 8%, transparent);
+    color: var(--primary-color);
+    border-radius: 100px;
+}
+
+.widget-title {
+    font-size: var(--fs-xl);
+    font-weight: 800;
+    color: var(--heading-color);
+    margin-bottom: 12px;
+    letter-spacing: -0.02em;
+}
+
+.widget-text {
+    font-size: var(--fs-sm);
+    color: var(--para-color);
+    line-height: 1.6;
+    margin: 0;
+    opacity: 0.8;
+}
+
+/* Small Cards (Standard) */
+.widget-icon {
+    width: 48px;
+    height: 48px;
+    background: var(--gray-bg);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+    transition: transform 0.5s ease;
+}
+
+.bonus-widget:hover .widget-icon {
+    transform: scale(1.1) rotate(6deg);
+}
+
+.widget-name {
+    font-size: var(--fs-md);
+    font-weight: 800;
+    color: var(--heading-color);
+    margin: 0;
+}
+
+.widget-info {
+    font-size: 0.8rem;
+    color: var(--para-color);
+    margin-top: 5px;
+    opacity: 0.6;
+    font-weight: 600;
+}
+
+/* Dashboard Effects */
+.bonus-widget::after {
+    content: '';
+    position: absolute;
+    top: -20%;
+    right: -20%;
+    width: 60%;
+    height: 60%;
+    background: radial-gradient(circle, color-mix(in srgb, var(--primary-color) 4%, transparent) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Responsive Dashboard */
+@media (max-width: 1199px) {
+    .bonus-dashboard {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .bonus-widget--large {
+        grid-column: span 3;
+    }
+}
+
+@media (max-width: 991px) {
+    .bonus-dashboard {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .bonus-widget--large {
+        grid-column: span 2;
+    }
+}
+
+@media (max-width: 575px) {
+    .bonus-dashboard {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+    }
+
+    .bonus-widget--large {
+        grid-column: span 1 !important;
+        grid-row: span 1 !important;
+        padding: 24px !important;
+    }
+
+    .bonus-widget {
+        border-radius: 20px !important;
+        padding: 20px 15px !important;
+    }
+
+    .widget-title {
+        font-size: 1.3rem !important;
+    }
+
+    .widget-icon-bg {
+        width: 50px !important;
+        height: 50px !important;
+    }
+}

@@ -1,0 +1,296 @@
+/* --- Installation / Setup Instructions (Swiper + GSAP) --- */
+#sc-setup-instructions {
+    padding: 60px 0;
+    overflow: hidden;
+}
+
+.setup-timeline-wrapper.swiper {
+    padding: 20px 0 80px;
+    margin-top: 40px;
+}
+
+.setupSwiper .swiper-wrapper {
+    display: flex;
+    align-items: stretch !important;
+    /* Force stretch all slides to same height */
+}
+
+.setupSwiper .swiper-slide {
+    height: auto !important;
+    display: flex !important;
+    align-items: stretch;
+}
+
+.setup-step-card {
+    background: var(--white-color);
+    border: 1px solid var(--border-color);
+    border-radius: 32px;
+    padding: 50px 35px;
+    text-align: center;
+    position: relative;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1;
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+    flex: 1;
+    /* Ensure card takes full height of the slide */
+}
+
+.setup-step-card:hover {
+    border-color: var(--theme-color);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+    /* Stronger shadow on hover */
+}
+
+.step-icon {
+    width: 80px;
+    height: 80px;
+    background: color-mix(in srgb, var(--theme-color) 8%, white);
+    border-radius: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--theme-color);
+    font-size: 2rem;
+    margin-bottom: 25px;
+    transition: all 0.4s ease;
+    box-shadow: inset 0 0 15px rgba(255, 255, 255, 0.6);
+    overflow: hidden;
+    /* Ensure images stay within bounds */
+}
+
+.step-icon img {
+    transition: filter 0.4s ease, transform 0.4s ease;
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+.setup-step-card:hover .step-icon {
+    background: var(--theme-color);
+    color: var(--white-color);
+    transform: rotate(-5deg) scale(1.1);
+}
+
+.setup-step-card:hover .step-icon img {
+    filter: brightness(0) invert(1);
+    /* Turn image white on hover */
+}
+
+.step-number {
+    font-size: 5rem;
+    font-weight: 900;
+    color: color-mix(in srgb, var(--theme-color) 4%, transparent);
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    line-height: 1;
+    z-index: -1;
+    pointer-events: none;
+    letter-spacing: -3px;
+    opacity: 0.5;
+}
+
+.setup-step-card h3 {
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--heading-color);
+    margin-bottom: 15px;
+}
+
+.setup-step-card p {
+    color: var(--para-color);
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 30px;
+    flex-grow: 1;
+    /* Pushes the editor UI to the bottom for equal height */
+}
+
+/* VS Code Editor UI */
+.code-editor-ui {
+    width: 100%;
+    height: 200px;
+    background: #1e1e1e;
+    /* VS Code dark background */
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    margin-top: auto;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.editor-header {
+    background: #252526;
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.editor-dots {
+    display: flex;
+    gap: 6px;
+    margin-right: 15px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.dot.red {
+    background: #ff5f56;
+}
+
+.dot.yellow {
+    background: #ffbd2e;
+}
+
+.dot.green {
+    background: #27c93f;
+}
+
+.editor-title {
+    color: #969696;
+    font-size: 0.75rem;
+    font-family: inherit;
+    text-transform: lowercase;
+    opacity: 0.8;
+}
+
+.code-snippet-flat {
+    background: transparent;
+    /* Background handled by .code-editor-ui */
+    padding: 20px;
+    width: 100%;
+    margin-top: 0;
+    max-height: 200px;
+    /* Limit height and enable scrollbar */
+    overflow-y: auto;
+    text-align: left; /* Ensure code is left aligned */
+}
+
+/* Custom Scrollbar for Editor */
+.code-snippet-flat::-webkit-scrollbar {
+    width: 6px;
+}
+
+.code-snippet-flat::-webkit-scrollbar-track {
+    background: #1e1e1e;
+}
+
+.code-snippet-flat::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 10px;
+}
+
+.code-snippet-flat::-webkit-scrollbar-thumb:hover {
+    background: var(--theme-color);
+}
+
+.code-snippet-flat code {
+    color: #d4d4d4;
+    /* VS Code default text color */
+    font-family: 'Fira Code', 'Consolas', monospace;
+    font-size: 0.9rem;
+    white-space: pre-wrap;
+    word-break: break-all;
+    text-align: left;
+    line-height: 1.6;
+    flex-grow: 1;
+}
+
+.code-snippet-flat code::-webkit-scrollbar {
+    display: none;
+}
+
+.copy-snippet-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #969696;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 6px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+}
+
+.copy-snippet-btn:hover {
+    background: var(--theme-color);
+    color: var(--white-color);
+    border-color: var(--theme-color);
+    transform: translateY(-2px);
+}
+
+/* Timeline Navigation (Swiper Custom) */
+.setup-nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+
+.setup-nav-btn {
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    background: var(--white-color);
+    color: var(--theme-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    font-size: 1.2rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.setup-nav-btn:not(.swiper-button-disabled):hover {
+    background: var(--theme-color);
+    color: var(--white-color);
+    transform: scale(1.1);
+}
+
+.setup-nav-btn.swiper-button-disabled {
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+.setup-dots.swiper-pagination-bullets {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    position: static;
+    width: auto;
+}
+
+.setup-dots .swiper-pagination-bullet {
+    width: 12px;
+    height: 12px;
+    background: color-mix(in srgb, var(--border-color) 60%, white);
+    opacity: 1;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    margin: 0 !important;
+}
+
+.setup-dots .swiper-pagination-bullet-active {
+    background: var(--theme-color);
+    width: 32px;
+    border-radius: 10px;
+}

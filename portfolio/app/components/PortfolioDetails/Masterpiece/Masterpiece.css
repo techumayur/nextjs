@@ -1,0 +1,14 @@
+/* ==========================================================================
+   Portfolio Details Masterpiece - FINAL POLISH
+   ========================================================================== */
+
+/* --- Layout Evolution --- */
+.pd-masterpiece-container {
+    background-color: transparent;
+    /* Seamless Background */
+}
+
+
+.pd-masterpiece-container .section-title-center {
+    margin-bottom: 0;
+}

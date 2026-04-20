@@ -1,0 +1,33 @@
+.breadcrumb-modern {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 12px;
+}
+
+.breadcrumb-item-modern {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--para-color);
+    font-weight: 500;
+}
+
+.breadcrumb-item-modern a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--para-color);
+    transition: color 0.3s ease;
+}
+
+.breadcrumb-item-modern a:hover {
+    color: var(--theme-color);
+}
+
+.breadcrumb-item-modern.active {
+    color: var(--theme-color);
+    font-weight: 700;
+}

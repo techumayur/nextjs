@@ -1,0 +1,99 @@
+/* --- Section Layout --- */
+.sc-content-section {
+    position: relative;
+    z-index: 10;
+}
+
+/* --- Premium Flat Card Patterns --- */
+.sc-premium-flat-card {
+    background: var(--white-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-xl);
+    padding: 0;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+}
+
+.sc-flat-header {
+    background: var(--gray-bg);
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.premium-badge-flat {
+    background: var(--theme-color);
+    color: var(--white-color);
+    padding: 6px 16px;
+    border-radius: var(--radius-full);
+    font-size: var(--fs-xs);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.flat-dots {
+    display: flex;
+    gap: 6px;
+}
+
+.flat-dots span {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+
+.sc-glass-body {
+    padding: 50px 60px;
+}
+
+.ultra-heading {
+    font-weight: 800;
+    font-size: 2.5rem;
+    margin-bottom: 25px;
+    color: var(--theme-color);
+}
+
+.text-glow {
+    color: var(--primary-color);
+}
+
+.sc-overview-text p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--para-color);
+    margin-bottom: 20px;
+}
+
+.sc-overview-text p:last-child {
+    margin-bottom: 0;
+}
+
+.brand-teal {
+    background: var(--theme-color);
+}
+
+.brand-orange {
+    background: var(--primary-color);
+}
+
+/* Responsive Styles */
+@media (max-width: 767px) {
+    .sc-flat-header {
+        padding: 15px 20px;
+    }
+
+    .sc-glass-body {
+        padding: 30px 20px;
+    }
+
+    .ultra-heading {
+        font-size: 2rem;
+    }
+    
+    .sc-overview-text p {
+        font-size: 1rem;
+    }
+}

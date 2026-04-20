@@ -1,0 +1,118 @@
+/* ==========================================================================
+   Social Share Section
+   ========================================================================== */
+
+.pd-social-share-section {
+    background: var(--body-color);
+}
+
+.social-share-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2.5rem;
+    padding: 1.8rem 2.5rem;
+    background: #fdfdfd;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 24px;
+    margin-top: 1rem;
+}
+
+.share-label {
+    font-size: 1.05rem;
+    font-weight: 850;
+    color: var(--heading-color);
+    position: relative;
+    padding-left: 18px;
+    margin-bottom: 0;
+    white-space: nowrap;
+    text-transform: none;
+    letter-spacing: 0;
+}
+
+.share-label::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 20px;
+    background: var(--primary-color);
+    border-radius: 10px;
+}
+
+.share-buttons {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.share-btn {
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+    text-decoration: none;
+}
+
+.share-btn:hover {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(11, 102, 106, 0.15);
+}
+
+.share-btn img {
+    width: 20px;
+    height: 20px;
+    transition: filter 0.3s ease;
+}
+
+.share-btn:hover img {
+    filter: brightness(0) invert(1);
+}
+
+@media (max-width: 768px) {
+    .social-share-wrapper {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.5rem;
+        padding: 1.5rem;
+    }
+
+    .share-label {
+        padding-left: 15px;
+    }
+
+    .share-label::before {
+        height: 16px;
+    }
+
+    .share-buttons {
+        gap: 10px;
+    }
+
+    .share-btn {
+        width: 44px;
+        height: 44px;
+        border-radius: 10px;
+    }
+
+    .share-btn img {
+        width: 18px;
+        height: 18px;
+    }
+}
+
+.pd-social-share-section .container {
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+    padding-top: 1rem;
+}

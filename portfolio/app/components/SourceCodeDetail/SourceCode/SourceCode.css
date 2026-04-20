@@ -1,0 +1,228 @@
+/* --- Source Code Showcase Section (Matching Home Page) --- */
+.sc-code-showcase-wrapper {
+    position: relative;
+    z-index: 2;
+}
+
+#sc-source-code {
+    /* background: #fff; */
+}
+
+/* --- VS Code Editor Section --- */
+.vscode-wrapper {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.15);
+    border: 1px solid var(--vs-border);
+    transition: all 0.3s ease;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+    /* Default heights */
+    height: 660px;
+}
+
+/* --- Theme Variables --- */
+.vscode-wrapper.dark-theme {
+    --vs-bg-base: #1e1e1e;
+    --vs-bg-sidebar: #252526;
+    --vs-bg-activity: #333333;
+    --vs-bg-titlebar: #323233;
+    --vs-bg-statusbar: #007acc;
+    --vs-bg-tab-active: #1e1e1e;
+    --vs-bg-tab-inactive: #2d2d2d;
+    --vs-bg-hover: rgba(255, 255, 255, 0.1);
+
+    --vs-text-main: #cccccc;
+    --vs-text-muted: #858585;
+    --vs-text-active: #ffffff;
+
+    --vs-border: #444444;
+    --vs-accent: #007acc;
+
+    --vs-code-bg: #1e1e1e;
+    --vs-code-text: #d4d4d4;
+}
+
+.vscode-wrapper.light-theme {
+    --vs-bg-base: #ffffff;
+    --vs-bg-sidebar: #f3f3f3;
+    --vs-bg-activity: #2c2c2c;
+    --vs-bg-titlebar: #dddddd;
+    --vs-bg-statusbar: #007acc;
+    --vs-bg-tab-active: #ffffff;
+    --vs-bg-tab-inactive: #ececec;
+    --vs-bg-hover: rgba(0, 0, 0, 0.05);
+
+    --vs-text-main: #616161;
+    --vs-text-muted: #8a8a8a;
+    --vs-text-active: #333333;
+
+    --vs-border: #cccccc;
+    --vs-accent: #007acc;
+
+    --vs-code-bg: #ffffff;
+    --vs-code-text: #000000;
+}
+
+.vscode-titlebar {
+    height: 35px;
+    background: var(--vs-bg-titlebar);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 15px;
+    border-bottom: 1px solid var(--vs-border);
+    user-select: none;
+}
+
+.window-controls {
+    display: flex;
+    gap: 8px;
+}
+
+.control-btn {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.control-red {
+    background: #ff5f56;
+}
+
+.control-yellow {
+    background: #ffbd2e;
+}
+
+.control-green {
+    background: #27c93f;
+}
+
+.vscode-title {
+    color: var(--vs-text-active);
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.vscode-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.vscode-action-btn {
+    background: var(--vs-accent);
+    color: white;
+    border: none;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: filter 0.2s ease;
+}
+
+.vscode-action-btn:hover {
+    filter: brightness(1.1);
+}
+
+.vscode-action-btn svg {
+    opacity: 0.9;
+}
+
+.vscode-action-divider {
+    width: 1px;
+    height: 16px;
+    background: var(--vs-border);
+}
+
+.theme-toggle-btn {
+    background: transparent;
+    border: none;
+    color: var(--vs-text-active);
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    transition: background 0.2s ease;
+}
+
+.theme-toggle-btn:hover {
+    background: var(--vs-bg-hover);
+}
+
+.vscode-wrapper.dark-theme .light-icon {
+    display: none;
+}
+
+.vscode-wrapper.light-theme .dark-icon {
+    display: none;
+}
+
+.vscode-body {
+    display: block;
+    overflow: hidden;
+    background: #1e1e1e;
+    flex-grow: 1;
+}
+
+#stackblitz-editor {
+    width: 100%;
+    height: 600px;
+    background: #1e1e1e;
+}
+
+.vscode-statusbar {
+    height: 25px;
+    background: #007acc;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    font-size: 11px;
+    font-weight: 500;
+}
+
+.status-left,
+.status-right {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.status-item {
+    padding: 0 8px;
+    cursor: default;
+    display: inline-flex;
+    align-items: center;
+    height: 100%;
+    opacity: 0.9;
+}
+
+.status-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.status-item svg {
+    margin-right: 6px;
+}
+
+@media (max-width: 991px) {
+    .vscode-wrapper {
+        height: 500px;
+    }
+
+    #stackblitz-editor {
+        height: 440px !important;
+    }
+}

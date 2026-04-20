@@ -1,0 +1,10 @@
+/* ==============================
+   BANNER
+   ============================== */
+#blog-detail-banner {
+    background:
+        linear-gradient(135deg, rgb(11 102 106 / 64%), rgb(11 102 106 / 70%)), 
+        url('/images/blogs/blogs-banner-mayur.jpg');
+    background-size: cover;
+    background-position: center;
+}

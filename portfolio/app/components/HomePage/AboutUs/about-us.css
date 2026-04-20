@@ -1,0 +1,155 @@
+/* ==============================
+   Home About Us Section
+   ============================== */
+#home-about-us .profile-content h2 {
+    color: var(--theme-color);
+}
+
+#home-about-us .profile-content h2,
+#home-about-us .profile-content p {
+    margin-bottom: 0;
+}
+
+#home-about-us .about-us-btn-group {
+    margin-top: 1rem;
+    max-width: fit-content;
+    display: flex;
+    gap: 1.5rem;
+}
+
+#home-about-us .profile-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: var(--gray-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid var(--primary-color);
+    flex-shrink: 0;
+}
+
+#home-about-us .profile-info {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    margin-bottom: 1rem;
+}
+
+#home-about-us .about-us-content p {
+    margin: 1rem 0 2rem;
+}
+
+#home-about-us .feature-card {
+    background: var(--white-color);
+    border-radius: 20px;
+    padding: 20px 10px;
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    height: 100%;
+    border: 2px solid var(--border-color);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#home-about-us .feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--theme-color);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+#home-about-us .feature-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 20px 40px color-mix(in srgb, var(--theme-color) 15%, transparent);
+    border-color: var(--theme-color);
+}
+
+#home-about-us .feature-card:hover::before {
+    opacity: 0.03;
+}
+
+#home-about-us .feature-card.card-1 .icon-wrapper {
+    background: color-mix(in srgb, var(--theme-color) 15%, transparent);
+}
+
+#home-about-us .feature-card.card-2 .icon-wrapper {
+    background: color-mix(in srgb, var(--primary-color) 15%, transparent);
+}
+
+#home-about-us .feature-card.card-3 .icon-wrapper {
+    background: color-mix(in srgb, var(--theme-color) 15%, transparent);
+}
+
+#home-about-us .icon-wrapper {
+    width: 65px;
+    height: 65px;
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    transition: all 0.4s ease;
+    position: relative;
+    z-index: 1;
+    border: 1.5px solid rgba(0,0,0,0.03);
+}
+
+#home-about-us .feature-card:hover .icon-wrapper {
+    transform: scale(1.1) rotate(5deg);
+}
+
+#home-about-us .feature-card.card-1:hover .icon-wrapper {
+    background: color-mix(in srgb, var(--theme-color) 15%, transparent);
+}
+
+#home-about-us .feature-card.card-2:hover .icon-wrapper {
+    background: color-mix(in srgb, var(--primary-color) 15%, transparent);
+}
+
+#home-about-us .feature-card.card-3:hover .icon-wrapper {
+    background: color-mix(in srgb, var(--theme-color) 15%, transparent);
+}
+
+#home-about-us .card-title {
+    font: var(--body-font);
+    color: var(--heading-color);
+    margin-bottom: 0;
+    letter-spacing: -0.5px;
+    position: relative;
+    z-index: 1;
+}
+
+#home-about-us .feature-card:nth-child(1) {
+    animation-delay: 0s;
+}
+
+#home-about-us .feature-card:nth-child(2) {
+    animation-delay: 0.15s;
+}
+
+#home-about-us .feature-card:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+@media (max-width: 991px) {
+    #home-about-us {
+        padding: 2rem 0.5rem;
+    }
+
+
+    #home-about-us .about-us-btn-group {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+    }
+}

@@ -1,0 +1,215 @@
+/* ============================================================
+   Thank You Page (Clean Dribbble Portfolio Match)
+   Modern, Attractive, 100% Solid (No Gradients)
+   ============================================================ */
+
+/* ─── Hide Global Elements for Immersion ────────────────── */
+header#navigation_bar,
+section#newsletter,
+footer {
+    display: none !important;
+}
+
+body {
+    padding-top: 0 !important;
+    background: var(--body-color);
+    overflow-x: hidden;
+    /* Guarantee single screen fit */
+}
+
+/* ─── Main Section ──────────────────────────────────────── */
+#ty-dribbble-clean {
+    height: 100dvh;
+    width: 100vw;
+    background-color: var(--body-color);
+    /* Strict subtle repeating brand pattern instead of gradients */
+    background-image: radial-gradient(rgba(9, 108, 108, 0.05) 2px, transparent 2px);
+    /* A pure flat dot pattern */
+    background-size: 40px 40px;
+    background-position: center;
+    overflow-y: auto;
+}
+
+/* ─── The Dribbble-Style Card ───────────────────────────── */
+.ty-glass-card {
+    background: var(--white-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-2xl);
+    padding: 60px 40px;
+    margin: 20px auto;
+    /* Clean solid offset shadow identical to Home Page Mockups */
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.06);
+    animation: fadeInScale 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: translateY(40px) scale(0.95);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* ─── Clean Icon ────────────────────────────────────────── */
+.ty-icon-wrapper {
+    width: 72px;
+    height: 72px;
+    background: rgba(9, 108, 108, 0.08);
+    /* Solid teal alpha */
+    color: var(--theme-color);
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    position: relative;
+}
+
+/* Solid pulsing ring to give it a modern interactive feel */
+.ty-icon-wrapper::after {
+    content: '';
+    position: absolute;
+    inset: -10px;
+    border: 2px solid var(--theme-color);
+    border-radius: 50%;
+    opacity: 0.2;
+    animation: pulseRing 2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+
+@keyframes pulseRing {
+    0% {
+        transform: scale(0.8);
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: scale(1.3);
+        opacity: 0;
+    }
+}
+
+/* ─── Typography ────────────────────────────────────────── */
+.ty-heading-clean {
+    font: var(--heading-font);
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    color: var(--heading-color);
+    line-height: 1.1;
+    letter-spacing: -1px;
+}
+
+/* Matches the 'highlight' class from Home Banner */
+.ty-text-highlight {
+    color: var(--primary-color);
+    position: relative;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.ty-text-highlight::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    background: var(--primary-color);
+    opacity: 0.2;
+    border-radius: 4px;
+}
+
+.ty-para-clean {
+    font: var(--para-font);
+    font-size: clamp(1rem, 1vw + 0.5rem, 1.15rem);
+    color: var(--para-color);
+    max-width: 540px;
+    line-height: 1.7;
+}
+
+/* ─── Subtle Details ────────────────────────────────────── */
+.ty-divider {
+    width: 60px;
+    height: 4px;
+    background: var(--border-color);
+    border-radius: 4px;
+}
+
+.ty-quick-links {
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.ty-link {
+    display: flex;
+    align-items: center;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--para-color);
+    text-decoration: none !important;
+    transition: color 0.3s;
+}
+
+.ty-link svg {
+    color: var(--theme-color);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ty-link:hover {
+    color: var(--theme-color) !important;
+}
+
+.ty-link:hover svg {
+    transform: translateY(-2px);
+}
+
+/* ─── Responsive Adjustments ────────────────────────────── */
+@media (max-width: 767px) {
+    #ty-dribbble-clean {
+        height: auto;
+        min-height: 100dvh;
+        padding: 60px 15px;
+        overflow-y: visible;
+    }
+
+    .ty-glass-card {
+        padding: 40px 20px;
+        margin: 0;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+    }
+
+    .ty-icon-wrapper {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 20px !important;
+    }
+
+    .ty-icon-wrapper svg {
+        width: 24px;
+        height: 24px;
+    }
+
+    .ty-heading-clean {
+        font-size: 2.2rem;
+    }
+
+    .ty-para-clean {
+        font-size: 1rem;
+        margin-bottom: 30px !important;
+    }
+
+    .ty-actions {
+        gap: 15px !important;
+        margin-bottom: 40px !important;
+    }
+
+    .ty-actions .primary-btn,
+    .ty-actions .secondary-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .ty-quick-links {
+        gap: 12px 20px !important;
+    }
+}

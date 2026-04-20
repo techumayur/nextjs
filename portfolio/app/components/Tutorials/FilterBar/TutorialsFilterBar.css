@@ -1,0 +1,290 @@
+/* PREMIUM REDESIGNED FILTER UI */
+.tutorial-premium-filter-bar {
+    background: color-mix(in srgb, var(--white-color) 85%, transparent);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid color-mix(in srgb, var(--white-color) 60%, transparent);
+    border-radius: 28px;
+    padding: 12px 12px 12px 24px;
+    box-shadow:
+        0 4px 6px -1px color-mix(in srgb, var(--black-color) 5%, transparent),
+        0 20px 40px -20px color-mix(in srgb, var(--black-color) 10%, transparent);
+    margin-bottom: 50px;
+    position: relative;
+    z-index: 100;
+}
+
+.filter-bar-inner {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+/* SEARCH COMPONENT */
+.filter-search-wrap {
+    flex: 2;
+    min-width: 250px;
+}
+
+.filter-search-input-group {
+    background: color-mix(in srgb, var(--gray-bg) 50%, transparent);
+    border-radius: 20px;
+    padding: 2px 8px 2px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border: 1.5px solid transparent;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.filter-search-input-group:focus-within {
+    background: var(--white-color);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--primary-color) 10%, transparent);
+}
+
+.filter-search-input-group input {
+    border: none;
+    background: transparent;
+    outline: none;
+    width: 100%;
+    height: 44px;
+    font: 500 0.95rem var(--body-font);
+    color: var(--heading-color);
+}
+
+.search-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.search-submit-btn {
+    background: var(--theme-color);
+    color: white;
+    border: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+/* DROPDOWNS */
+.premium-dropdown {
+    position: relative;
+}
+
+.premium-dropdown-btn {
+    background: var(--white-color);
+    border: 1.5px solid color-mix(in srgb, var(--black-color) 4%, transparent);
+    border-radius: 20px;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font: 600 0.9rem var(--body-font);
+    color: var(--heading-color);
+}
+
+.premium-dropdown-menu {
+    position: absolute;
+    top: calc(100% + 15px);
+    left: 0;
+    width: 250px;
+    background: var(--white-color);
+    border-radius: 24px;
+    padding: 12px;
+    box-shadow: 0 20px 50px color-mix(in srgb, var(--black-color) 15%, transparent);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px) scale(0.95);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    z-index: 200;
+}
+
+.premium-dropdown.active .premium-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+}
+
+/* OPTIONS */
+.premium-option {
+    display: flex;
+    align-items: center;
+    padding: 12px 14px;
+    border-radius: 16px;
+    cursor: pointer;
+    color: var(--para-color);
+    font: 600 0.9rem var(--body-font);
+    transition: all 0.2s ease;
+}
+
+.premium-option input {
+    position: absolute;
+    opacity: 0;
+}
+
+.option-check {
+    width: 22px;
+    height: 22px;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    margin-right: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+}
+
+.premium-option.active .option-check {
+    background: var(--theme-color);
+    border-color: var(--theme-color);
+}
+
+/* RESET BUTTON */
+.premium-reset-btn {
+    background: color-mix(in srgb, var(--theme-color) 10%, transparent);
+    color: var(--theme-color);
+    border: none;
+    width: 48px;
+    height: 48px;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.4s;
+}
+
+/* VIEW TOGGLE */
+.view-toggle-wrap {
+    display: flex;
+    background: color-mix(in srgb, var(--gray-bg) 80%, transparent);
+    padding: 6px;
+    border-radius: 20px;
+    gap: 4px;
+    margin-left: auto;
+}
+
+.view-btn {
+    border: none;
+    background: transparent;
+    width: 40px;
+    height: 40px;
+    border-radius: 14px;
+    color: var(--para-color);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+}
+
+.view-btn.active {
+    background: var(--white-color);
+    color: var(--theme-color);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* GLASS DRAWER */
+.filter-overlay-glass {
+    position: fixed;
+    inset: 0;
+    background: color-mix(in srgb, var(--theme-color) 20%, transparent);
+    backdrop-filter: blur(8px);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s ease;
+    z-index: 9998;
+}
+
+.filter-overlay-glass.is-open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.premium-filter-drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 400px;
+    max-width: 85%;
+    height: 100vh;
+    background: var(--white-color);
+    z-index: 10001;
+    transform: translateX(100%);
+    transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+    display: flex;
+    flex-direction: column;
+}
+
+.premium-filter-drawer.is-open {
+    transform: translateX(0);
+}
+
+.mobile-toggle-btn {
+    border: none;
+    background: var(--theme-color);
+    color: var(--white-color);
+    padding: 12px 24px;
+    border-radius: 100px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+/* DRAWER ACCORDION */
+.drawer-content {
+    padding: 1.5rem;
+    overflow-y: auto;
+}
+
+.drawer-group {
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 1rem;
+}
+
+.trigger-label {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--heading-color);
+    margin-bottom: 0;
+    padding: 1rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.trigger-label svg {
+    transition: transform 0.3s ease;
+}
+
+.drawer-group.active .trigger-label svg {
+    transform: rotate(180deg);
+}
+
+.options-container {
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0;
+    margin-bottom: 0;
+}
+
+.drawer-group.active .options-container {
+    max-height: 500px;
+    opacity: 1;
+    margin-bottom: 1.5rem;
+}
+

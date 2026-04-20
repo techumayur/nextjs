@@ -1,0 +1,84 @@
+/* --- Architecture Bento Grid --- */
+.sc-arch-bento-grid {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 1.5rem;
+}
+
+.bento-stat-card {
+    background: var(--white-color);
+    border: 1px solid var(--border-color);
+    padding: 2.5rem;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    transition: all 0.45s ease;
+    height: 100%;
+}
+
+.bento-stat-card:hover {
+    box-shadow: var(--shadow-md);
+    border-color: var(--theme-color);
+}
+
+.sc-arch-bento-hero h4 {
+    font: var(--sub-heading-font);
+    margin-bottom: 1rem;
+    color: var(--heading-color);
+}
+
+.bento-stat-card.secondary {
+    background: var(--gray-bg);
+    border-color: transparent;
+}
+
+.bento-stat-card.stats-accent {
+    background: var(--theme-color);
+    color: var(--white-color);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.highlight-number {
+    font: var(--banner-font);
+    font-size: 3.5rem;
+    line-height: 1;
+    margin-bottom: 10px;
+}
+
+/* --- Intel List Pattern --- */
+.intel-list {
+    list-style: none;
+    padding: 0;
+}
+
+.intel-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.85rem 0;
+    border-bottom: 1px solid var(--border-color);
+    gap: 1rem;
+    align-items: center;
+}
+
+.intel-item:last-child {
+    border-bottom: none;
+}
+
+.intel-label {
+    font: var(--badge-font);
+    text-transform: uppercase;
+}
+
+.intel-value {
+    font: var(--btn-font);
+    color: var(--heading-color);
+}
+
+/* --- Responsive --- */
+@media (max-width: 1199px) {
+    .sc-arch-bento-grid {
+        grid-template-columns: 1fr;
+    }
+}

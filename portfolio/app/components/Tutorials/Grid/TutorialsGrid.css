@@ -1,0 +1,134 @@
+/* TUTORIALS FEED (Grid & List) */
+.tutorials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+/* List View Logic */
+.tutorials-grid.list-view {
+    grid-template-columns: 1fr;
+    gap: 25px;
+}
+
+.tutorials-grid.list-view .video-item {
+    display: flex;
+    align-items: stretch;
+    height: auto;
+}
+
+.tutorials-grid.list-view .video-thumb-wrapper {
+    width: 420px;
+    height: auto;
+    min-height: 100%;
+    flex-shrink: 0;
+}
+
+.tutorials-grid.list-view .video-info {
+    flex-grow: 1;
+    padding: 35px 45px;
+}
+
+@media (max-width: 991px) {
+    .tutorials-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .tutorials-grid.list-view .video-item {
+        flex-direction: column;
+    }
+    .tutorials-grid.list-view .video-thumb-wrapper {
+        width: 100%;
+        height: 220px;
+    }
+}
+
+@media (max-width: 767px) {
+    .tutorials-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* VIDEO ITEM STYLES */
+.video-item {
+    background: var(--white-color);
+    border-radius: 24px;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    cursor: pointer;
+    box-shadow: 0 5px 20px color-mix(in srgb, var(--theme-color) 8%, transparent);
+    height: 100%;
+}
+
+.video-thumb-wrapper {
+    position: relative;
+    height: 220px;
+    overflow: hidden;
+}
+
+.video-thumb-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.6s ease;
+}
+
+.video-item:hover .video-thumb-wrapper img {
+    transform: scale(1.1);
+}
+
+.platform-label {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    padding: 8px 18px;
+    border-radius: 100px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--white-color);
+    z-index: 2;
+}
+
+.platform-label.youtube {
+    background: #FF0000;
+}
+
+.video-info {
+    padding: 25px;
+}
+
+.video-heading {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.video-metrics {
+    display: flex;
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.metric {
+    font-size: 13px;
+    color: var(--para-color);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.video-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.video-item .btn-share {
+    width: 50px;
+    height: 50px;
+    background: var(--theme-color);
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

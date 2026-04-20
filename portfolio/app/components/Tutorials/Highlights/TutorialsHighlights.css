@@ -1,0 +1,75 @@
+/* SIDEBAR CARDS (3 COLUMN SECTION) */
+#tutorials-highlights .sidebar-card {
+    background: var(--white-color);
+    border-radius: 24px;
+    padding: 30px;
+    box-shadow: 0 8px 30px rgba(245, 135, 37, 0.12);
+    transition: all 0.4s ease;
+    border: 1px solid rgba(245, 135, 37, 0.05);
+}
+
+#tutorials-highlights .sidebar-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px color-mix(in srgb, var(--primary-color) 20%, transparent);
+    border-color: var(--primary-color);
+}
+
+#tutorials-highlights .sidebar-title {
+    font: var(--sub-heading-font);
+    color: var(--heading-color);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.25rem;
+}
+
+#tutorials-highlights .stat-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+    background: linear-gradient(135deg, var(--body-color) 0%, color-mix(in srgb, var(--primary-color) 5%, transparent) 100%);
+    border-radius: 16px;
+    transition: all 0.45s ease;
+}
+
+#tutorials-highlights .stat-item:hover {
+    transform: translateX(8px);
+    background: linear-gradient(135deg, color-mix(in srgb, var(--primary-color) 10%, transparent) 0%, color-mix(in srgb, var(--primary-color) 15%, transparent) 100%);
+}
+
+#tutorials-highlights .stat-icon {
+    width: 50px;
+    height: 50px;
+    background: var(--primary-color);
+    color: var(--white-color);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+#tutorials-highlights .stat-icon img {
+    width: 24px;
+    filter: brightness(0) invert(1);
+}
+
+#tutorials-highlights .stat-content {
+    flex: 1;
+}
+
+#tutorials-highlights .stat-value {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--heading-color);
+    line-height: 1.2;
+}
+
+#tutorials-highlights .stat-label {
+    font: var(--body-font);
+    color: var(--para-color);
+    font-size: 0.85rem;
+    font-weight: 600;
+}

@@ -1,0 +1,267 @@
+.canvas-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.relative-z {
+    position: relative;
+    z-index: 10;
+}
+
+.workspace-container {
+    background: var(--bg-white);
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    transition: transform 0.45s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.45s ease;
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 5;
+}
+
+.workspace-container:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 45px 80px rgba(0, 0, 0, 0.18);
+}
+
+.workspace-header {
+    background: var(--gray-bg);
+    padding: 15px 25px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    gap: 30px;
+}
+
+.window-controls {
+    display: flex;
+    gap: 8px;
+}
+
+.control-btn {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.control-btn.red { background: #ff5f56; }
+.control-btn.yellow { background: #ffbd2e; }
+.control-btn.green { background: #27c93f; }
+
+.editor-tabs {
+    display: flex;
+    gap: 15px;
+}
+
+.editor-tabs .tab {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 15px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    color: #666;
+    font-family: var(--font-mono, 'Fira Code', monospace);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.editor-tabs .tab.active {
+    background: var(--white-color);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    color: var(--theme-color);
+    font-weight: 600;
+}
+
+.canvas-form-wrapper {
+    background: var(--white-color);
+    padding: 30px;
+    position: relative;
+    transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.canvas-input-group {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.canvas-form-header {
+    text-align: left;
+}
+
+.canvas-form-header h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: 1rem;
+}
+
+.canvas-input {
+    width: 100%;
+    padding: 1rem 0;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid var(--border-color);
+    color: var(--heading-color);
+    font-family: var(--font-mono, 'Fira Code', monospace);
+    letter-spacing: -0.5px;
+    transition: all 0.4s ease;
+}
+
+.canvas-label {
+    position: absolute;
+    top: 1rem;
+    left: 0;
+    color: var(--para-color);
+    font-weight: 500;
+    pointer-events: none;
+    font-family: var(--font-mono, 'Fira Code', monospace);
+    font-size: 0.95rem;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.canvas-input:focus ~ .canvas-label,
+.canvas-input:not(:placeholder-shown) ~ .canvas-label {
+    top: -1.25rem;
+    left: 0;
+    font-size: 0.85rem;
+    color: var(--theme-color);
+    font-weight: 600;
+}
+
+.syntax-prop {
+    color: var(--theme-color);
+    font-weight: 600;
+}
+
+.canvas-line {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--theme-color);
+    transition: all 0.4s ease;
+    transform: translateX(-50%);
+}
+
+.canvas-input:focus ~ .canvas-line {
+    width: 100%;
+}
+
+.canvas-input:focus {
+    outline: none;
+    border-bottom-color: transparent;
+}
+
+.canvas-input:focus + .canvas-label .syntax-prop,
+.canvas-input:not(:placeholder-shown) + .canvas-label .syntax-prop {
+    color: var(--primary-color);
+}
+
+/* Invalid state */
+.canvas-input.is-invalid {
+    border-bottom-color: #ef4444;
+}
+
+.invalid-feedback-canvas {
+    color: #ef4444;
+    font-size: 13px;
+    margin-top: 6px;
+    font-family: var(--font-mono, 'Fira Code', monospace);
+    animation: fadeInCanvas 0.3s ease;
+}
+
+@keyframes fadeInCanvas {
+    from { opacity: 0; transform: translateY(-4px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Thank You Popup */
+.thank-you-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    backdrop-filter: blur(8px);
+    animation: fadeInModal 0.4s ease;
+}
+
+.thank-you-content {
+    background-color: var(--white-color);
+    padding: 50px 40px;
+    border-radius: 24px;
+    text-align: center;
+    max-width: 500px;
+    width: 90%;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    animation: slideUpModal 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.thank-you-icon {
+    width: 80px;
+    height: 80px;
+    background-color: var(--theme-color);
+    color: var(--white-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 24px;
+    font-size: 40px;
+    box-shadow: 0 10px 20px color-mix(in srgb, var(--theme-color) 30%, transparent);
+}
+
+.thank-you-content h3 {
+    font: var(--sub-heading-font);
+    color: var(--heading-color);
+    margin-bottom: 15px;
+    font-size: 2rem !important;
+}
+
+.thank-you-content p {
+    font: var(--para-font);
+    color: var(--para-color);
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.thank-you-content .primary-btn {
+    padding: 14px 40px;
+    cursor: pointer;
+    border: none;
+    text-align: center;
+    display: inline-flex;
+    justify-content: center;
+}
+
+@keyframes fadeInModal {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUpModal {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 991px) {
+    .canvas-form-wrapper {
+        padding: 30px 20px;
+    }
+    
+    .workspace-header {
+        padding: 10px 15px;
+        gap: 15px;
+    }
+    
+    .editor-tabs {
+        display: none;
+    }
+}

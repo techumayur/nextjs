@@ -1,0 +1,20 @@
+.project-cta .sub-heading-tag-1 {
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    width: fit-content;
+}
+
+.project-cta .sub-heading-image img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    /* Apply a filter to make white icons visible (e.g., orange-ish or dark) */
+    filter: brightness(0) saturate(100%) invert(56%) sepia(91%) saturate(3025%) hue-rotate(352deg) brightness(101%) contrast(106%);
+}
+
+.project-cta .sub-heading-image .icon-svg-wrapper svg {
+    width: 20px;
+    height: 20px;
+}

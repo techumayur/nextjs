@@ -1,0 +1,89 @@
+/* =========================================================================
+   1. Floating Tech Matrix 
+   ========================================================================= */
+.floating-matrix {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 1.25rem;
+    padding: 1rem 0;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+.matrix-tile {
+    background: var(--surface-color, var(--white-color));
+    border: 1px solid var(--border-color);
+    border-radius: 14px;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+    /* Float animation added dynamically for those visible initially */
+    animation: float 5s ease-in-out infinite;
+}
+.matrix-tile:nth-child(2n) {
+    animation-delay: 1s;
+}
+.matrix-tile:nth-child(3n) {
+    animation-delay: 2s;
+}
+.matrix-tile:nth-child(4n) {
+    animation-delay: 1.5s;
+}
+@keyframes float {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+}
+.matrix-tile:hover {
+    animation-play-state: paused;
+    transform: translateY(-6px) scale(1.04) !important;
+    border-color: var(--primary-color);
+    box-shadow: var(--shadow-md);
+}
+[data-theme="dark"] .matrix-tile:hover {
+    box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.5);
+}
+.matrix-logo {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+    transition: transform 0.4s ease;
+}
+.matrix-tile:hover .matrix-logo {
+    transform: scale(1.15) rotate(5deg);
+}
+.matrix-name {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--heading-color);
+    margin: 0;
+}
+
+.mobile-hidden {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .mobile-hidden {
+        display: flex;
+    }
+}
+
+.floating-matrix.is-expanded .mobile-hidden {
+    display: flex;
+}
+.stack-btn-wrapper {
+    margin-top: 3.5rem;
+    display: flex;
+    justify-content: center;
+}

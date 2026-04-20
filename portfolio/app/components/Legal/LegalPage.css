@@ -1,0 +1,117 @@
+/* =========================================================================
+   POLICY PAGES STYLES (Terms & Privacy)
+   ========================================================================== */
+
+/* 1. Banner */
+.inner-banner {
+    padding: 180px 0 120px;
+    background-size: cover !important;
+    background-position: center !important;
+    position: relative;
+    overflow: hidden;
+}
+
+/* 2. Policy Content Layout */
+.policy-content-section {
+    padding-bottom: 40px;
+}
+
+.policy-card {
+    background: var(--white-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 30px;
+    box-shadow: var(--shadow-sm);
+}
+
+.policy-text-wrapper {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* 3. Typography */
+.policy-text h2 {
+    font: var(--sub-heading-font);
+    color: var(--heading-color);
+    margin: 30px 0 15px;
+    position: relative;
+    padding-left: 20px;
+}
+
+.policy-text h2::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 70%;
+    background: var(--primary-color);
+    border-radius: 2px;
+}
+
+.policy-text h2:first-child {
+    margin-top: 0;
+}
+
+.policy-text h3 {
+    font: var(--small-heading-font);
+    color: var(--heading-color);
+    margin: 20px 0 10px;
+}
+
+.policy-text p {
+    font: var(--para-font);
+    color: var(--para-color);
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.policy-text ul,
+.policy-text ol {
+    margin-bottom: 20px;
+    padding-left: 25px;
+}
+
+.policy-text li {
+    font: var(--para-font);
+    color: var(--para-color);
+    margin-bottom: 10px;
+    position: relative;
+    list-style: none;
+}
+
+.policy-text ul li::before {
+    content: '→';
+    position: absolute;
+    left: -25px;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+/* 4. Last Updated Badge */
+.last-updated {
+    display: inline-block;
+    padding: 6px 16px;
+    background: color-mix(in srgb, var(--primary-color) 10%, transparent);
+    color: var(--primary-color);
+    border-radius: 30px;
+    font: var(--badge-font);
+    margin-bottom: 20px;
+}
+
+/* 5. Responsive */
+@media (max-width: 768px) {
+    .inner-banner {
+        padding: 140px 0 80px;
+    }
+
+    .policy-card {
+        padding: 20px;
+    }
+
+    .policy-text h2 {
+        font-size: 1.4rem;
+    }
+}

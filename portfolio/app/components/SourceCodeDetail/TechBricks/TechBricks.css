@@ -1,0 +1,111 @@
+/* --- Tech Bricks (Swiper) --- */
+
+.sc-tech-swiper {
+    padding: 20px 0 60px !important;
+    overflow: hidden;
+    min-height: 120px;
+}
+
+.sc-tech-swiper .swiper-wrapper {
+    display: flex !important;
+    align-items: stretch !important;
+}
+
+.sc-tech-swiper .swiper-slide {
+    height: auto !important;
+    display: flex !important;
+}
+
+.sc-tech-card-modern {
+    background: var(--white-color);
+    border: 1px solid var(--border-color);
+    padding: 1rem;
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    width: 100%;
+    height: 100%;
+    transition: all 0.45s ease;
+    box-shadow: var(--shadow-sm);
+    opacity: 1;
+    visibility: visible;
+}
+
+.sc-tech-card-modern:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--primary-color);
+}
+
+.sc-tech-icon {
+    width: 50px;
+    height: 50px;
+    background: var(--gray-bg);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    flex-shrink: 0;
+}
+
+.sc-tech-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.sc-tech-info h4 {
+    font: var(--sub-heading-font);
+    font-size: 1.1rem;
+    margin-bottom: 0;
+    color: var(--heading-color);
+}
+
+.sc-tech-tag {
+    font: var(--small-badge-font);
+    color: var(--para-color);
+    text-transform: uppercase;
+    font-size: 0.65rem;
+}
+
+.tech-pagination {
+    bottom: 0 !important;
+}
+
+.tech-pagination .swiper-pagination-bullet-active {
+    background: var(--primary-color);
+    width: 25px;
+    border-radius: 4px;
+}
+
+.tech-prev,
+.tech-next {
+    color: var(--theme-color) !important;
+    width: 36px !important;
+    height: 36px !important;
+    background: var(--white-color);
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    box-shadow: var(--shadow-sm);
+}
+
+.tech-prev:hover,
+.tech-next:hover {
+    background: var(--theme-color);
+    color: var(--white-color) !important;
+}
+
+.tech-prev:after,
+.tech-next:after {
+    font-size: 0.9rem !important;
+}
+
+.tech-prev {
+    left: 0 !important;
+}
+
+.tech-next {
+    right: 0 !important;
+}

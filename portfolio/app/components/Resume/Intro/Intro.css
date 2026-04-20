@@ -1,0 +1,195 @@
+/* ==============================
+   Resume CTA Section (Scoped)
+================================= */
+#resume-intro .cta-container {
+    background: var(--white-color);
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px color-mix(in srgb, var(--black-color) 8%, transparent);
+    padding: 0;
+}
+
+#resume-intro .cta-row {
+    min-height: 500px;
+}
+
+#resume-intro .cta-left {
+    background: var(--primary-color);
+    padding: 60px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    height: 100%;
+}
+
+#resume-intro .cta-left::before,
+#resume-intro .cta-left::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    background: color-mix(in srgb, var(--white-color) 8%, transparent);
+}
+
+#resume-intro .cta-left::before {
+    top: 0;
+    right: 0;
+    width: 200px;
+    height: 200px;
+    transform: translate(50%, -50%);
+}
+
+#resume-intro .cta-left::after {
+    bottom: 0;
+    left: 0;
+    width: 150px;
+    height: 150px;
+    transform: translate(-50%, 50%);
+}
+
+#resume-intro .cta-badge {
+    background: color-mix(in srgb, var(--white-color) 20%, transparent);
+    display: inline-flex;
+    padding: 10px 20px;
+    color: var(--white-color);
+    border-radius: 30px;
+    font: var(--badge-font);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 20px;
+    gap: 1rem;
+    align-items: center;
+    width: fit-content;
+}
+
+#resume-intro .cta-badge img {
+    filter: brightness(10);
+}
+
+#resume-intro .cta-title {
+    font: var(--banner-font);
+    color: var(--white-color);
+    margin-bottom: 15px;
+    position: relative;
+    z-index: 1;
+}
+
+#resume-intro .cta-subtitle {
+    font: var(--para-font);
+    color: color-mix(in srgb, var(--white-color) 95%, transparent);
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 1;
+}
+
+#resume-intro .cta-stats {
+    display: flex;
+    gap: 30px;
+    margin-top: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+#resume-intro .stat-item {
+    text-align: left;
+}
+
+#resume-intro .stat-number {
+    font: var(--heading-font);
+    color: var(--white-color);
+    margin-bottom: 5px;
+}
+
+#resume-intro .stat-label {
+    font: var(--badge-font);
+    color: color-mix(in srgb, var(--white-color) 80%, transparent);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+#resume-intro .cta-right {
+    background: var(--white-color);
+    padding: 60px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100%;
+}
+
+#resume-intro .cta-icon-box {
+    width: 70px;
+    height: 70px;
+    background: var(--primary-color);
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 25px;
+    transition: all 0.45s ease;
+}
+
+#resume-intro .cta-container:hover .cta-icon-box {
+    transform: scale(1.1) rotate(-5deg);
+    background: var(--primary-color);
+    color: var(--white-color);
+}
+
+#resume-intro .cta-heading {
+    font: var(--sub-heading-font);
+    color: var(--heading-color);
+    margin-bottom: 15px;
+}
+
+#resume-intro .cta-text {
+    font: var(--para-font);
+    color: var(--para-color);
+    line-height: 1.7;
+    margin-bottom: 10px;
+}
+
+#resume-intro .resume-btn-group {
+    display: flex;
+    gap: 30px;
+}
+
+#resume-intro .cta-features {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+#resume-intro .feature-tag {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font: var(--badge-font);
+    color: var(--para-color);
+}
+
+@media (max-width: 991px) {
+    #resume-intro .cta-row {
+        flex-direction: column;
+    }
+    
+    #resume-intro .cta-left,
+    #resume-intro .cta-right {
+        padding: 40px 30px;
+    }
+
+    #resume-intro .cta-stats {
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    #resume-intro .resume-btn-group {
+        flex-direction: column;
+        width: 100%;
+        gap: 15px;
+    }
+    
+    #resume-intro .resume-btn-group a {
+        width: 100%;
+    }
+}

@@ -1,0 +1,124 @@
+/* =========================================================================
+   18. Next/Previous Project Navigation Section
+   ========================================================================= */
+.nav-wrapper-modern {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.02);
+}
+
+.nav-item-modern {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    padding: 2.5rem;
+    text-decoration: none !important;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    position: relative;
+    background: #ffffff;
+}
+
+.nav-item-modern:hover {
+    background: #fcfcfc;
+}
+
+.prev-project {
+    border-right: 1px solid rgba(0, 0, 0, 0.06);
+    gap: 1.5rem;
+}
+
+.next-project {
+    gap: 1.5rem;
+    justify-content: flex-end;
+}
+
+.nav-thumb {
+    width: 80px;
+    height: 80px;
+    border-radius: 16px;
+    overflow: hidden;
+    flex-shrink: 0;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.nav-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.nav-item-modern:hover .nav-thumb img {
+    transform: scale(1.15);
+}
+
+.nav-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-label {
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: var(--primary-color, #0B666A);
+    margin-bottom: 8px;
+    opacity: 0.7;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nav-item-modern.next-project .nav-label {
+    justify-content: flex-end;
+}
+
+.nav-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 750;
+    color: #111111;
+    margin: 0;
+    transition: color 0.3s ease;
+}
+
+.nav-item-modern:hover .nav-title {
+    color: var(--primary-color, #0B666A);
+}
+
+.empty-nav {
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+@media (max-width: 991px) {
+    .nav-wrapper-modern {
+        flex-direction: column;
+        border-radius: 20px;
+    }
+
+    .prev-project {
+        border-right: none;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    }
+
+    .nav-item-modern {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 575px) {
+    .nav-thumb {
+        width: 60px;
+        height: 60px;
+    }
+
+    .nav-title {
+        font-size: 1.1rem;
+    }
+}

@@ -1,0 +1,278 @@
+/* Advance Motion Path Tracking */
+.process-motion-container {
+    height: auto;
+    max-width: 1000px;
+    margin: 40px auto 0;
+    position: relative;
+}
+
+@media (min-width: 992px) {
+    .process-motion-container {
+        height: 1250px;
+    }
+}
+
+.process-svg-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+@media (max-width: 991px) {
+
+    .process-svg-wrapper,
+    .motion-rocket {
+        display: none !important;
+    }
+}
+
+.process-svg {
+    width: 100%;
+    height: 100%;
+}
+
+.motion-rocket {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 60px;
+    height: 60px;
+    background: var(--theme-color);
+    color: var(--white-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    z-index: 2;
+    box-shadow: 0 0 20px rgba(9, 108, 108, 0.4);
+    transform: translate(-50%, -50%);
+}
+
+.process-nodes-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    pointer-events: none;
+}
+
+@media (max-width: 991px) {
+    .process-nodes-wrapper {
+        position: relative !important;
+        height: auto !important;
+        pointer-events: all !important;
+        z-index: 10;
+        overflow: hidden;
+        /* Swiper requirement */
+        padding: 0 10px;
+        /* Slight horizontal padding for container */
+    }
+}
+
+.process-node {
+    position: absolute;
+    width: 400px !important;
+    opacity: 1;
+    pointer-events: auto;
+    transition: opacity 0.5s ease;
+    will-change: transform;
+}
+
+@media (max-width: 991px) {
+    .process-node {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+        width: 100% !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}
+
+.process-node.active-node {
+    opacity: 1;
+}
+
+/* Node 1: Top Center */
+.process-node.node-1 {
+    top: 50px;
+    left: 55%;
+}
+
+@media (max-width: 991px) {
+    .pr-card {
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+        margin-bottom: 80px !important;
+    }
+
+    .setup-timeline-track.swiper-wrapper {
+        padding-bottom: 50px;
+    }
+}
+
+/* Swiper overrides for Desktop (disable swiper flex when > 991px) */
+@media (min-width: 992px) {
+    .process-mobile-swiper {
+        overflow: visible;
+        padding-bottom: 0;
+    }
+
+    .process-mobile-swiper .swiper-wrapper {
+        display: block;
+        transform: none !important;
+    }
+
+    .process-mobile-swiper .swiper-slide {
+        height: auto;
+    }
+
+    .process-mobile-pagination {
+        display: none !important;
+    }
+
+    .process-node {
+        opacity: 0.4;
+        /* Dim by default on desktop for motion effect */
+    }
+
+    .process-node.active-node {
+        opacity: 1;
+    }
+}
+
+section#sc-process {
+    padding: 5rem 0;
+}
+
+/* Node 2: Middle Left */
+.process-node.node-2 {
+    top: 450px;
+    right: 55%;
+}
+
+/* Node 3: Bottom Right */
+.process-node.node-3 {
+    top: 900px;
+    left: 55%;
+}
+
+/* Slider Cards - repurposed for Motion Path */
+.process-premium-card {
+    background: var(--white-color);
+    border: 1px solid var(--border-color);
+    border-radius: 32px;
+    padding: 60px 40px;
+    position: relative;
+    z-index: 5;
+    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+}
+
+.process-motion-card {
+    margin-top: 0;
+    height: 100%;
+    /* Ensure equal height in swiper */
+    display: flex;
+    flex-direction: column;
+}
+
+@media (max-width: 991px) {
+    .process-premium-card {
+        padding: 40px 30px;
+        text-align: center !important;
+    }
+
+    .card-bg-number {
+        font-size: 6rem !important;
+        top: -10px !important;
+        right: 10px !important;
+        left: auto !important;
+    }
+
+    .step-icon-flat {
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+}
+
+.process-node.active-node .process-motion-card {
+    border-color: var(--theme-color);
+    box-shadow: 0 30px 60px -15px rgba(9, 108, 108, 0.15);
+}
+
+/* Large Outlined background Numbers */
+.card-bg-number {
+    position: absolute;
+    top: -20px;
+    right: -10px;
+    font-size: 10rem;
+    font-weight: 800;
+    line-height: 1;
+    color: transparent;
+    -webkit-text-stroke: 1.5px color-mix(in srgb, var(--theme-color) 5%, transparent);
+    z-index: 1;
+    pointer-events: none;
+    transition: all 0.8s cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+.process-node.active-node .card-bg-number {
+    -webkit-text-stroke-color: color-mix(in srgb, var(--theme-color) 12%, transparent);
+    transform: translate(-15px, 15px);
+}
+
+.card-content-wrap {
+    position: relative;
+    z-index: 5;
+}
+
+.step-label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--theme-color);
+    letter-spacing: 0.3em;
+    margin-bottom: 1.5rem;
+    display: inline-block;
+}
+
+.process-premium-card h4 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--heading-color);
+    margin-bottom: 1.25rem;
+}
+
+.process-premium-card p {
+    color: var(--para-color);
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin-bottom: 0;
+}
+
+.step-icon-flat {
+    width: 60px;
+    height: 60px;
+    background: var(--gray-bg);
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--theme-color);
+    font-size: 1.4rem;
+    transition: all 0.4s ease;
+}
+
+.process-node.active-node .step-icon-flat {
+    background: var(--theme-color);
+    color: var(--white-color);
+    transform: translateY(-5px);
+}

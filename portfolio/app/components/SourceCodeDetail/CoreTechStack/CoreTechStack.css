@@ -1,0 +1,76 @@
+/* =========================================================================
+   10. Technology Used Section (Modern Grid)
+   ========================================================================= */
+.tech-pill-grid {
+    background: var(--white-color);
+    border: 1px solid var(--border-color);
+    border-radius: 32px;
+    padding: 30px 20px;
+    text-align: center;
+    transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.tech-pill-grid:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+    border-color: var(--primary-color);
+}
+
+.tech-icon-box {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: #f8f9fa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.5s ease;
+    position: relative;
+    z-index: 1;
+}
+
+/* Specific glows */
+.react-glow::before { background: rgba(97, 218, 251, 0.15); }
+.nextjs-glow::before { background: rgba(0, 0, 0, 0.1); }
+.php-glow::before { background: rgba(119, 123, 179, 0.15); }
+.wp-glow::before { background: rgba(0, 116, 156, 0.15); }
+
+.tech-icon-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 50%;
+    z-index: -1;
+    filter: blur(10px);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.tech-pill-grid:hover .tech-icon-box::before {
+    opacity: 1;
+}
+
+.tech-pill-grid:hover .tech-icon-box {
+    transform: rotate(10deg) scale(1.1);
+    background: var(--white-color);
+}
+
+.nextjs-icon {
+    filter: brightness(0);
+}
+
+.tech-name-sm {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--heading-color);
+    margin: 0;
+}

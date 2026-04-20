@@ -1,0 +1,197 @@
+#contact-hero .home-banner-content {
+    text-align: left;
+}
+
+#contact-hero h1,
+#contact-hero h2,
+#contact-hero .hero-title-wrapper,
+#contact-hero .hero-title-wrapper h1,
+#contact-hero .hero-title-wrapper h2 {
+    font: var(--banner-font);
+    color: var(--heading-color);
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+#contact-hero .highlight {
+    color: var(--primary-color);
+    position: relative;
+    display: inline-block;
+}
+
+#contact-hero p {
+    font: var(--para-font);
+    color: var(--para-color);
+    margin-bottom: 2rem;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.feature-pills {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    /* justify-content: center; */
+}
+
+.pill {
+    background: var(--white-color);
+    padding: 12px 24px;
+    border-radius: 50px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font: var(--badge-font);
+    color: var(--heading-color);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    border: 1px solid var(--border-color);
+}
+
+.pill-teal {
+    color: var(--theme-color);
+}
+
+.pill-orange {
+    color: var(--primary-color);
+}
+
+.pill:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border-color: var(--theme-color);
+}
+
+.pill-icon-img {
+    width: 14px;
+    height: 14px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.visual-container {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 24px;
+}
+
+.creative-card {
+    background: var(--white-color);
+    border-radius: 20px;
+    padding: 17px;
+    width: 100%;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    border: 2px solid transparent;
+    animation: float-contact-card 5s infinite ease-in-out;
+}
+
+.creative-card:nth-child(even) {
+    animation-delay: 1.5s;
+}
+
+.creative-card:nth-child(3) {
+    animation-delay: 2.5s;
+}
+
+.creative-card:nth-child(4) {
+    animation-delay: 3.5s;
+}
+
+@keyframes float-contact-card {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-15px) rotate(1deg);
+    }
+}
+
+.creative-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+    border-color: color-mix(in srgb, var(--primary-color) 20%, transparent);
+}
+
+.card-icon-wrapper {
+    width: 44px;
+    height: 44px;
+    background: var(--primary-color);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    color: var(--white-color);
+    font-size: 18px;
+    box-shadow: 0 6px 15px color-mix(in srgb, var(--primary-color) 25%, transparent);
+    transition: all 0.45s ease;
+}
+
+.card-icon-wrapper img,
+.card-icon-wrapper svg {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    filter: brightness(30);
+}
+
+.creative-card:hover .card-icon-wrapper {
+    transform: rotateY(180deg);
+}
+
+.creative-card:hover .card-icon-wrapper img {
+    filter: brightness(30);
+}
+
+.card-icon-wrapper.alt {
+    background: var(--theme-color);
+    box-shadow: 0 6px 15px color-mix(in srgb, var(--theme-color) 25%, transparent);
+}
+
+.card-title {
+    font: var(--small-heading-font);
+    color: var(--heading-color);
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+
+.card-description {
+    font: var(--body-font);
+    color: var(--para-color);
+    margin-bottom: 12px;
+    font-weight: 500;
+    word-break: break-word;
+}
+
+.card-badge {
+    text-decoration: none;
+    display: inline-block;
+    background: color-mix(in srgb, var(--primary-color) 8%, transparent);
+    color: var(--primary-color);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+
+a.card-badge:hover {
+    background: var(--primary-color);
+    color: var(--white-color);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px color-mix(in srgb, var(--primary-color) 30%, transparent);
+}
+
+@media (max-width: 991px) {
+    .visual-container {
+        grid-template-columns: 1fr;
+    }
+}

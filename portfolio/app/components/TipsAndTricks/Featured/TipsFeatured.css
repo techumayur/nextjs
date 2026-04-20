@@ -1,0 +1,131 @@
+/* ==============================
+  Home Tips and Tricks Section 
+   ============================== */
+#featured-tips-tricks .tip-card-badge {
+    display: inline-block;
+    background: var(--primary-color);
+    color: var(--white-color);
+    padding: 6px 16px;
+    border-radius: 20px;
+    font: var(--small-badge-font);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    position: absolute;
+    right: 10px;
+    top: 15px;
+}
+
+#featured-tips-tricks .card-img-overlay {
+    top: unset;
+    bottom: 0;
+    padding: 3rem;
+    background: linear-gradient(180deg, transparent 0%, rgba(0, 18, 25, 0.95) 60%);
+    border-radius: 20px;
+}
+
+#featured-tips-tricks .card {
+    height: 100%;
+    /* min-height: 500px; */
+    border-radius: 20px;
+    transition: all 0.3s;
+}
+
+#featured-tips-tricks .card-image {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+#featured-tips-tricks .card-img-overlay h3 {
+    font: var(--sub-heading-font);
+    color: var(--white-color);
+    margin-bottom: 10px;
+}
+
+#featured-tips-tricks .card-img-overlay p {
+    font: var(--body-font);
+    color: var(--white-color);
+    margin-bottom: 20px;
+}
+
+#featured-tips-tricks .card-image img {
+    min-width: 100%;
+    max-height: 100%;
+    min-height: 100%;
+    object-fit: cover;
+}
+
+#featured-tips-tricks span.tip-card-number {
+    background-color: var(--primary-color);
+    display: inline-flex;
+    margin-bottom: 20px;
+    font: var(--small-heading-font);
+    color: var(--white-color);
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+#featured-tips-tricks .card-body p {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+}
+
+#featured-tips-tricks .right-column .tip-card-number {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+
+#featured-tips-tricks .right-column .card-image {
+    border-radius: 20px 0 0 20px;
+}
+
+#featured-tips-tricks .card-body {
+    height: 100%;
+    padding: 2rem 1.5rem;
+}
+
+#featured-tips-tricks .card-body h3 {
+    font: var(--small-heading-font);
+    line-height: normal;
+}
+
+#featured-tips-tricks .card-body p {
+    font: var(--body-font);
+}
+
+#featured-tips-tricks article {
+    height: 100%;
+}
+
+#featured-tips-tricks .card:hover {
+    transform: translateX(5px);
+}
+
+#featured-tips-tricks .right-column .card:hover {
+    border-color: var(--primary-color);
+    box-shadow: var(--card-shadow-hover);
+}
+
+@media (max-width: 767px) {
+    #featured-tips-tricks .card-img-overlay {
+        padding: 1.5rem;
+    }
+
+    #featured-tips-tricks .card {
+        min-height: 400px;
+    }
+
+    #featured-tips-tricks .right-column .card-image {
+        border-radius: 20px 20px 0px 0px;
+    }
+}

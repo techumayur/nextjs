@@ -1,0 +1,83 @@
+/* --- Usage Example / Demo Link Section --- */
+#sc-demo {
+    position: relative;
+    z-index: 10;
+}
+
+.demo-fullwidth-card {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.demo-preview-wrapper {
+    position: relative;
+    border-radius: 30px;
+    overflow: hidden;
+    background: #1e1e1e;
+    cursor: pointer;
+    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    max-height: 550px;
+}
+
+.demo-screenshot {
+    width: 100%;
+    height: 550px;
+    object-fit: cover;
+    object-position: top;
+    display: block;
+    transition: transform 1.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+    opacity: 0.85;
+}
+
+
+.demo-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(9, 108, 108, 0.6) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: all 0.5s ease;
+}
+
+.demo-preview-wrapper:hover {
+    box-shadow: 0 40px 80px rgba(9, 108, 108, 0.3);
+}
+
+.demo-preview-wrapper:hover .demo-screenshot {
+    transform: scale(1.05);
+    opacity: 1;
+}
+
+.demo-preview-wrapper:hover .demo-overlay {
+    opacity: 1;
+}
+
+.demo-btn {
+    transform: translateY(30px);
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.demo-preview-wrapper:hover .demo-btn {
+    transform: translateY(0);
+}
+
+@media (max-width: 991px) {
+    .demo-preview-wrapper {
+        max-height: 400px;
+    }
+    .demo-screenshot {
+        height: 400px;
+    }
+    .demo-overlay {
+        opacity: 1;
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(9, 108, 108, 0.4) 100%);
+    }
+    .demo-btn {
+        transform: translateY(0);
+    }
+}

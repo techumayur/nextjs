@@ -1,0 +1,95 @@
+#shareModal .modal-content {
+    background: var(--white-color);
+    padding: 70px 40px;
+    border-radius: 32px;
+    max-width: 500px;
+    width: 100%;
+    margin: auto;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    border: none;
+}
+
+#shareModal .share-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    background-color: var(--theme-color);
+    border: none;
+    border-radius: 50%;
+    background-image: url('/images/menu/close.svg');
+    background-size: 20px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#shareModal .share-title {
+    font: var(--sub-heading-font);
+    color: var(--heading-color);
+    margin-bottom: 30px;
+    text-align: center;
+    font-weight: 700;
+}
+
+#shareModal .social-buttons {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+#shareModal .social-btn {
+    padding: 20px;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    background: var(--body-color);
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+#shareModal .social-btn span {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--heading-color);
+}
+
+#shareModal .social-btn:hover {
+    transform: translateY(-3px);
+}
+
+#shareModal .copy-link-section {
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid color-mix(in srgb, var(--theme-color) 10%, transparent);
+}
+
+#shareModal .copy-link-wrapper {
+    display: flex;
+    gap: 12px;
+}
+
+#shareModal .copy-link-input {
+    flex: 1;
+    padding: 16px 20px;
+    border: 2px solid var(--body-color);
+    border-radius: 100px;
+    background: var(--body-color);
+    font-size: 14px;
+}
+
+#shareModal .copy-link-btn {
+    padding: 12px 24px;
+    background: var(--theme-color);
+    color: var(--white-color);
+    border: none;
+    border-radius: 100px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+}

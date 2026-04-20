@@ -1,0 +1,130 @@
+.stack-container {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    padding: 0 20px;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+}
+
+.card-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--section-spacing);
+}
+
+.stack-item {
+    background: var(--white-color);
+    border: 3px solid var(--border-color);
+    border-radius: 30px;
+    padding: 35px 50px 50px 50px;
+    /* Reduced top padding */
+    margin-bottom: 0;
+    position: relative;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+    box-sizing: border-box;
+    will-change: transform, padding-top;
+}
+
+.stack-item:hover {
+    border-color: var(--primary-color);
+    box-shadow: var(--shadow-md);
+}
+
+.stack-year {
+    position: absolute;
+    top: -20px;
+    left: 50px;
+    background: var(--primary-color);
+    color: var(--white-color);
+    font-size: var(--fs-sm);
+    font-weight: 700;
+    padding: 10px 24px;
+    border-radius: var(--radius-2xl);
+    letter-spacing: 1px;
+    z-index: 20;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.stack-content {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+.stack-icon {
+    width: 100px;
+    height: 100px;
+    min-width: 100px;
+    background: var(--body-color);
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s ease;
+    margin-top: 10px;
+}
+
+.stack-item:hover .stack-icon {
+    background: var(--theme-color);
+    transform: rotate(-10deg);
+}
+
+.stack-icon i {
+    font-size: 40px;
+    color: var(--theme-color);
+    transition: all 0.4s ease;
+}
+
+.stack-item:hover .stack-icon i {
+    color: var(--white-color);
+}
+
+.stack-text h3 {
+    font: var(--small-heading-font);
+    color: var(--heading-color);
+    margin: 0 0 10px 0;
+    line-height: 1.2;
+}
+
+.stack-company {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--body-color);
+    color: var(--theme-color);
+    font: var(--body-font);
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: var(--radius-lg);
+    margin-bottom: 12px;
+}
+
+.stack-text p {
+    font: var(--body-font);
+    color: var(--para-color);
+    line-height: 1.7;
+    margin: 0;
+}
+
+.spacer {
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--para-color);
+    text-align: center;
+    padding: 20px;
+}
+
+@media (max-width: 768px) {
+
+    .stack-content {
+        flex-direction: column;
+    }
+
+    .stack-container {
+        /* padding-bottom: 100vh; */
+    }
+}

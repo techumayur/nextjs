@@ -1,0 +1,86 @@
+/* =========================================================================
+   2. Design & Creativity Tools (Premium Grid)
+   ========================================================================= */
+.design-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1.5rem;
+    padding-bottom: 2rem;
+}
+@media (min-width: 576px) {
+    .design-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (min-width: 992px) {
+    .design-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+.design-card {
+    background: var(--white-color);
+    border-radius: 20px;
+    padding: 30px 20px;
+    text-align: center;
+    border: 2px solid transparent;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.04);
+}
+.design-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+    border-color: color-mix(in srgb, var(--primary-color) 20%, transparent);
+}
+.design-icon-wrapper {
+    width: 60px;
+    height: 60px;
+    background: color-mix(in srgb, var(--primary-color) 8%, transparent);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    transition: all 0.45s ease;
+}
+.design-card:hover .design-icon-wrapper {
+    background: var(--primary-color);
+    box-shadow: 0 10px 20px color-mix(in srgb, var(--primary-color) 30%, transparent);
+    transform: translateY(-3px) scale(1.05);
+}
+.design-logo {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    transition: all 0.45s ease;
+}
+.mobile-hidden {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .mobile-hidden {
+        display: flex;
+    }
+}
+
+.design-grid.is-expanded .mobile-hidden {
+    display: flex;
+}
+.design-name {
+    font: var(--small-heading-font);
+    font-size: var(--fs-md);
+    color: var(--heading-color);
+    margin: 0 0 10px 0;
+}
+.design-desc {
+    font: var(--para-font);
+    font-size: var(--fs-sm);
+    color: var(--para-color);
+    margin: 0;
+    line-height: 1.5;
+}

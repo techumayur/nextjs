@@ -1,0 +1,209 @@
+/* ================================
+   About Me Section 
+================================ */
+#about-me-intro .bento-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 25px;
+    margin-top: 0;
+}
+
+#about-me-intro .bento-card {
+    background: var(--white-color, #fff);
+    border-radius: var(--radius-lg, 20px);
+    padding: 20px 30px;
+    box-shadow: var(--shadow-sm, 0 4px 12px rgba(0, 0, 0, 0.06));
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+#about-me-intro .bento-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--theme-color, #096C6C);
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+}
+
+#about-me-intro .bento-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--card-shadow-hover, 0 10px 30px rgba(255, 107, 53, 0.15));
+}
+
+#about-me-intro .bento-card:hover::before {
+    transform: scaleX(1);
+}
+
+/* Grid Sizes */
+#about-me-intro .bento-medium {
+    grid-column: span 4;
+}
+
+#about-me-intro .bento-small {
+    grid-column: span 6;
+}
+
+/* Profile Card */
+#about-me-intro .profile-image-wrapper {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 15px;
+}
+
+#about-me-intro .profile-image {
+    width: 100%;
+    height: 100%;
+    border-radius: var(--radius-full, 50%);
+    object-fit: cover;
+    border: 5px solid var(--white-color, #fff);
+    box-shadow: var(--shadow-sm, 0 4px 12px rgba(0, 0, 0, 0.06));
+}
+
+#about-me-intro .profile-status {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    width: 35px;
+    height: 35px;
+    background: #10B981;
+    border-radius: var(--radius-full, 50%);
+    border: 4px solid var(--white-color, #fff);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+    }
+
+    50% {
+        box-shadow: 0 0 0 10px rgba(16, 185, 129, 0);
+    }
+}
+
+#about-me-intro .profile-info {
+    text-align: center;
+}
+
+#about-me-intro .profile-name {
+    font: var(--small-heading-font);
+    color: var(--theme-color, #096C6C);
+    margin-bottom: 8px;
+}
+
+#about-me-intro .profile-role {
+    font: var(--body-font);
+    color: var(--theme-color, #096C6C);
+    margin-bottom: 20px;
+}
+
+#about-me-intro .profile-social {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    max-width: 90%;
+    margin: auto;
+}
+
+#about-me-intro .social-icon {
+    width: 40px;
+    height: 40px;
+    background: var(--theme-color, #096C6C);
+    border: 2px solid var(--theme-color, #096C6C);
+    border-radius: var(--radius-md, 8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-color, #FF7518);
+    text-decoration: none;
+    transition: all 0.45s ease;
+    font-size: var(--fs-md);
+}
+
+#about-me-intro .social-icon:hover {
+    background: var(--body-color, #FFFAFA);
+    border-color: var(--theme-color);
+    transform: translateY(-3px);
+}
+
+#about-me-intro .white-image img {
+    filter: brightness(0) invert(1);
+}
+
+#about-me-intro .social-icon:hover img {
+    filter: brightness(1) invert(0);
+}
+
+/* Content Card */
+#about-me-intro .bento-large {
+    grid-column: span 8;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#about-me-intro .content-heading {
+    font: var(--small-heading-font);
+    color: var(--heading-color, #1C1C1C);
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+#about-me-intro .content-text p {
+    font: var(--para-font);
+    color: var(--para-color, #5F6368);
+    margin-bottom: 15px;
+}
+
+.content-wrapper {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.content-text {
+    overflow: hidden;
+}
+
+.content-text p {
+    margin-bottom: 12px;
+}
+
+.read-toggle {
+    background: none;
+    border: none;
+    color: var(--theme-color, #096C6C);
+    cursor: pointer;
+    font-weight: 600;
+    padding: 0;
+    margin-top: 5px;
+}
+
+@media (max-width: 991px) {
+
+    #about-me-intro .bento-large,
+    #about-me-intro .bento-medium,
+    #about-me-intro .bento-small {
+        grid-column: span 12;
+    }
+
+    #about-me-intro .bento-grid {
+        gap: 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    #about-me-intro .bento-card {
+        padding: 25px;
+    }
+}

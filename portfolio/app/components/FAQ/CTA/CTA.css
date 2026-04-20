@@ -1,0 +1,140 @@
+/* ==========================================================================
+   HOME PAGE REPLICATED CTA (No Gradients)
+   ========================================================================== */
+#faq-cta .home-cta-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#faq-cta .home-cta-container {
+    background: var(--white-color);
+    border-radius: 32px;
+    padding: 60px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+    position: relative;
+    overflow: hidden;
+    border: 2px solid var(--border-color);
+}
+
+#faq-cta .home-cta-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    background: var(--primary-color);
+}
+
+#faq-cta .home-cta-content {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+#faq-cta .home-cta-icon-wrapper {
+    width: 80px;
+    height: 80px;
+    background: var(--body-color);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 24px;
+    border: 3px solid var(--theme-color);
+}
+
+#faq-cta .home-cta-icon-wrapper i {
+    font-size: 36px;
+    color: var(--theme-color);
+}
+
+#faq-cta .home-cta-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--heading-color);
+    margin-bottom: 16px;
+}
+
+#faq-cta .home-cta-text {
+    font-size: 1.1rem;
+    color: var(--para-color);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+#faq-cta .home-cta-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin: 2rem auto;
+}
+
+#faq-cta .home-cta-info {
+    margin-top: 32px;
+    padding-top: 32px;
+    border-top: 2px solid var(--border-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+#faq-cta .home-cta-info-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+#faq-cta .home-cta-info-icon {
+    width: 44px;
+    height: 44px;
+    background: var(--body-color);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#faq-cta .home-cta-info-text {
+    text-align: left;
+}
+
+#faq-cta .home-cta-info-label {
+    font-size: 0.875rem;
+    color: var(--para-color);
+    display: block;
+}
+
+#faq-cta .home-cta-info-value {
+    font-size: 1rem;
+    color: var(--heading-color);
+    font-weight: 600;
+    display: block;
+}
+
+@media (max-width: 991px) {
+    #faq-cta .home-cta-container {
+        padding: 40px;
+    }
+}
+
+@media (max-width: 767px) {
+    #faq-cta .home-cta-container {
+        padding: 40px 20px;
+        border-radius: 24px;
+    }
+
+    #faq-cta .home-cta-title {
+        font-size: 1.75rem;
+    }
+
+    #faq-cta .home-cta-info {
+        gap: 20px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

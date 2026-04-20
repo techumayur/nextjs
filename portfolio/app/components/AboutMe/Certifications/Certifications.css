@@ -1,0 +1,172 @@
+/* ================================
+   Certifications Section 
+================================ */
+#cert-section {
+    position: relative;
+    padding: var(--section-spacing) 0;
+}
+
+/* Bento Grid Layout */
+.cert-bento-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.cert-item {
+    background: var(--white-color, #fff);
+    border: 2px solid var(--border-color, #e8e8e8);
+    border-radius: var(--radius-xl, 30px);
+    padding: 35px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+}
+
+.cert-item:hover {
+    border-color: var(--primary-color, #FF7518);
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md, 0 12px 30px rgba(0, 0, 0, 0.10));
+}
+
+.cert-item-large {
+    grid-column: span 6;
+}
+
+.cert-item-medium {
+    grid-column: span 4;
+}
+
+.cert-item-small {
+    grid-column: span 3;
+}
+
+.cert-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 80px;
+    height: 80px;
+    background: var(--body-color, #FFFAFA);
+    border-radius: 0 0 0 100%;
+    transition: all 0.5s ease;
+}
+
+.cert-item:hover::before {
+    width: 120px;
+    height: 120px;
+    background: var(--theme-color, #096C6C);
+    opacity: 0.05;
+}
+
+.cert-icon-modern {
+    width: 54px;
+    height: 54px;
+    background: var(--theme-color, #096C6C);
+    border-radius: var(--radius-md, 12px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 25px;
+    position: relative;
+    z-index: 1;
+    transition: all 0.4s ease;
+    color: var(--white-color, #fff);
+}
+
+.cert-item:hover .cert-icon-modern {
+    background: var(--primary-color, #FF7518);
+    transform: rotate(-10deg);
+}
+
+.cert-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 15px;
+    position: relative;
+    z-index: 1;
+}
+
+.cert-provider-tag {
+    font: var(--badge-font);
+    color: var(--white-color, #fff);
+    background: var(--theme-color, #096C6C);
+    padding: 6px 14px;
+    border-radius: var(--radius-lg, 20px);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.cert-year-tag {
+    font: var(--badge-font);
+    color: var(--primary-color, #FF7518);
+    background: var(--body-color, #FFFAFA);
+    padding: 6px 14px;
+    border-radius: var(--radius-lg, 20px);
+    font-weight: 600;
+}
+
+.cert-item h3 {
+    font: var(--sub-heading-font);
+    font-size: 1.25rem;
+    color: var(--heading-color, #1C1C1C);
+    margin-bottom: 12px;
+    position: relative;
+    z-index: 1;
+}
+
+.cert-item p {
+    font: var(--body-font);
+    color: var(--para-color, #5F6368);
+    line-height: 1.6;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 0;
+}
+
+@media (max-width: 1024px) {
+
+    .cert-item-large,
+    .cert-item-medium,
+    .cert-item-small {
+        grid-column: span 6;
+    }
+}
+
+@media (max-width: 1200px) {
+    .cert-item-small {
+        grid-column: span 4;
+    }
+}
+
+@media (max-width: 991px) {
+
+    .cert-item-large,
+    .cert-item-medium,
+    .cert-item-small {
+        grid-column: span 6;
+    }
+}
+
+@media (max-width: 768px) {
+    .cert-bento-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cert-item-large,
+    .cert-item-medium,
+    .cert-item-small {
+        grid-column: span 1;
+    }
+
+    .cert-item {
+        padding: 25px;
+    }
+}

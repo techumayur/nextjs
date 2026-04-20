@@ -1,0 +1,194 @@
+/* =========================================================================
+   12. Gallery / Screenshots Section (2026 Brutalist Stacked Cards)
+   ========================================================================= */
+.pd-gallery-section {
+    background-color: var(--white-color);
+    overflow: hidden;
+}
+
+.brutalist-bg-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: clamp(8rem, 20vw, 25rem);
+    font-weight: 900;
+    text-transform: uppercase;
+    color: transparent;
+    -webkit-text-stroke: 2px var(--border-color);
+    opacity: 0.1;
+    letter-spacing: -5px;
+    z-index: 0;
+    white-space: nowrap;
+    pointer-events: none;
+    user-select: none;
+}
+
+.custom-drag-cursor {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-family: 'Space Mono', monospace;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    pointer-events: none;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%) scale(0.5);
+    opacity: 0;
+    transition: width 0.3s, height 0.3s, opacity 0.3s ease, background-color 0.3s;
+}
+
+.cards-interactive-area {
+    position: relative;
+    width: 100%;
+}
+
+.cards-slider-2026 {
+    width: 100%;
+    max-width: 900px;
+    height: 50vh;
+    min-height: 450px;
+    margin: 0 auto;
+    padding: 0 0 20px 0;
+    overflow: visible;
+}
+
+.brutalist-card {
+    width: 700px;
+    border-radius: 32px;
+    overflow: hidden;
+    background-color: var(--white-color);
+    border: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    transition: box-shadow 0.8s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.8s ease;
+}
+
+.card-inner-wrap {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 32px;
+    overflow: hidden;
+}
+
+.card-inner-wrap img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    filter: brightness(0.7) contrast(1.1) grayscale(0.5);
+    transition: filter 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.swiper-slide-active .card-inner-wrap img {
+    filter: brightness(1) contrast(1.1) grayscale(0);
+    transform: scale(1.05);
+}
+
+.card-caption {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    background: var(--white-color);
+    color: var(--heading-color);
+    padding: 15px 25px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all 0.4s ease 0.2s;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.step-num {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+
+.step-text {
+    font-size: clamp(1rem, 1.5vw, 1.3rem);
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.swiper-slide-active .card-caption {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.brutalist-nav-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.brutalist-prev,
+.brutalist-next {
+    pointer-events: auto;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--white-color);
+    color: var(--heading-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-color);
+}
+
+.brutalist-prev:hover,
+.brutalist-next:hover {
+    background: var(--primary-color);
+    color: #fff;
+    transform: scale(1.1);
+}
+
+@media (max-width: 991px) {
+    .brutalist-nav-wrapper {
+        position: static;
+        transform: none;
+        justify-content: center;
+        gap: 15px;
+        margin-top: 20px;
+    }
+
+    .brutalist-prev,
+    .brutalist-next {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+@media (max-width: 768px) {
+    .brutalist-card {
+        width: 320px;
+        height: 480px;
+    }
+    
+    .cards-slider-2026 {
+        height: auto;
+        min-height: 500px;
+    }
+}

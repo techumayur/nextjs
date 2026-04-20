@@ -1,0 +1,18 @@
+.faq-intro-section {
+    padding-bottom: 0px;
+}
+
+.faq-intro-section .section-title {
+    margin-bottom: 0px;
+}
+
+.faq-intro-section h2 {
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+@media (max-width: 991px) {
+    .faq-intro-section h2 {
+        font-size: 2rem;
+    }
+}

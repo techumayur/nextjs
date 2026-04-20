@@ -1,0 +1,15 @@
+.map-wrapper {
+    border-radius: 0;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.05);
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+#google-map iframe {
+    filter: grayscale(0.5) contrast(1.1);
+    transition: filter 0.3s ease;
+}
+
+#google-map iframe:hover {
+    filter: grayscale(0);
+}

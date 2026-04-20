@@ -1,0 +1,8 @@
+#tips-heading .section-header {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+#tips-heading .highlight {
+    color: var(--primary-color);
+}

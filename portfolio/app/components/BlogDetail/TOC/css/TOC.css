@@ -1,0 +1,304 @@
+.sticky-toc-section {
+    position: relative;
+    z-index: 10;
+    padding: 2rem 0;
+    margin-top: 0;
+    width: 100%;
+}
+
+.sticky-toc-section.is-sticky {
+    padding: 2rem 0;
+    background: transparent;
+    box-shadow: none;
+    border-bottom: none;
+}
+
+.sticky-toc-section.is-sticky .container {
+    max-width: 100% !important;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+
+.sticky-toc-section .toc-card {
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+    transition: all 0.3s ease;
+}
+
+.sticky-toc-section.is-sticky .toc-card {
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+/* Toggle button as header */
+.toc-card__toggle {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 25px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    text-align: left;
+    transition: background 0.2s;
+    gap: 12px;
+}
+
+.toc-card__toggle:hover {
+    background: rgba(11, 102, 106, 0.04);
+}
+
+.toc-card__title-wrap {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+    min-width: 0;
+}
+
+.toc-card__icon {
+    display: flex;
+    align-items: center;
+    color: var(--primary-color, #0B666A);
+    flex-shrink: 0;
+}
+
+.toc-card__title {
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--heading-color);
+    white-space: nowrap;
+}
+
+.toc-card__count {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--primary-color, #0B666A);
+    background: rgba(11, 102, 106, 0.1);
+    border-radius: 20px;
+    padding: 2px 9px;
+    line-height: 1.6;
+    flex-shrink: 0;
+}
+
+.toc-card__toggle-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+}
+
+/* Reading-progress ring */
+.toc-card__progress {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.toc-ring {
+    transform: rotate(-90deg);
+}
+
+.toc-ring__bg {
+    fill: none;
+    stroke: var(--border-color, #e5e7eb);
+    stroke-width: 2.8;
+}
+
+.toc-ring__fill {
+    fill: none;
+    stroke: var(--primary-color, #0B666A);
+    stroke-width: 2.8;
+    stroke-linecap: round;
+    transition: stroke-dasharray 0.4s ease;
+}
+
+.toc-ring__pct {
+    position: absolute;
+    font-size: 0.52rem;
+    font-weight: 700;
+    color: var(--primary-color, #0B666A);
+    line-height: 1;
+}
+
+/* Chevron */
+.toc-card__chevron {
+    display: flex;
+    align-items: center;
+    color: var(--para-color, #6b7280);
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.toc-card__toggle[aria-expanded="false"] .toc-card__chevron {
+    transform: rotate(-90deg);
+}
+
+/* Collapsible body */
+.toc-card__body {
+    overflow: hidden;
+    max-height: 600px;
+    transition: max-height 0.38s cubic-bezier(0.4, 0, 0.2, 1),
+        opacity 0.3s ease;
+    opacity: 1;
+    border-top: 1px solid var(--border-color, #f0f0f0);
+}
+
+.toc-card__body.toc-collapsed {
+    max-height: 0;
+    opacity: 0;
+    border-top-color: transparent;
+}
+
+.toc-card__nav {
+    padding: 18px 24px 22px;
+}
+
+/* Grid */
+.toc-grid {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 6px 16px;
+}
+
+.toc-grid__item {
+    position: relative;
+}
+
+.toc-grid__item--sub .toc-grid__link {
+    font-size: 0.82rem;
+    color: var(--para-color, #6b7280);
+}
+
+.toc-grid__link {
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+    padding: 9px 12px;
+    border-radius: 9px;
+    text-decoration: none;
+    color: var(--para-color, #4b5563);
+    font-size: 0.86rem;
+    font-weight: 500;
+    line-height: 1.4;
+    transition: background 0.18s, color 0.18s, transform 0.18s;
+    border: 1px solid transparent;
+    height: 100%;
+}
+
+.toc-grid__link:hover {
+    background: rgba(11, 102, 106, 0.07);
+    color: var(--primary-color, #0B666A);
+    border-color: rgba(11, 102, 106, 0.15);
+    transform: translateY(-1px);
+}
+
+.toc-grid__link--active {
+    background: rgba(11, 102, 106, 0.09) !important;
+    color: var(--primary-color, #0B666A) !important;
+    border-color: rgba(11, 102, 106, 0.25) !important;
+    font-weight: 600;
+}
+
+.toc-grid__num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    border-radius: 5px;
+    background: rgba(11, 102, 106, 0.09);
+    color: var(--primary-color, #0B666A);
+    font-size: 0.67rem;
+    font-weight: 700;
+    margin-top: 1px;
+    transition: background 0.18s, color 0.18s;
+}
+
+.toc-grid__link:hover .toc-grid__num,
+.toc-grid__link--active .toc-grid__num {
+    background: var(--primary-color, #0B666A);
+    color: #fff;
+}
+
+.toc-grid__num {
+    font-size: 0.6rem;
+    border-radius: 4px;
+    background: rgba(11, 102, 106, 0.05);
+}
+
+@media (max-width: 1199.98px) {
+    .toc-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 991.98px) {
+    .toc-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .toc-card__toggle {
+        padding: 14px 18px;
+    }
+
+    .toc-card__nav {
+        padding: 14px 18px 18px;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .toc-grid {
+        grid-template-columns: 1fr;
+        gap: 4px;
+    }
+
+    .toc-card__toggle {
+        padding: 12px 16px;
+    }
+
+    .toc-card__nav {
+        padding: 12px 16px 16px;
+    }
+}
+
+@media (max-width: 575px) {
+    .toc-card__toggle {
+        padding: 12px 18px;
+        gap: 8px;
+    }
+
+    .toc-card__title {
+        font-size: 0.8rem;
+        letter-spacing: 0.05em;
+    }
+
+    .toc-card__count {
+        display: none;
+    }
+
+    .toc-card__toggle-right {
+        gap: 6px;
+    }
+
+    .toc-ring {
+        width: 32px;
+        height: 32px;
+    }
+
+    .toc-ring__pct {
+        font-size: 0.6rem;
+    }
+}
