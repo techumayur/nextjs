@@ -2,7 +2,7 @@ import { ACFContactPage, ContactPageData } from "@/types/acf";
 
 export async function getContactPage() {
   const wpApiUrl = process.env.NEXT_PUBLIC_WP_API_URL;
-  const contactPageId = process.env.CONTACT_PAGE_ID || 1406; // Standard practice to put ID in env or use a known one.
+  const contactPageId = process.env.CONTACT_PAGE_ID;
 
   if (!wpApiUrl) {
     console.error("WP API URL is not defined");
@@ -10,26 +10,34 @@ export async function getContactPage() {
   }
 
   try {
-    const res = await fetch(`${wpApiUrl}/wp-json/wp/v2/pages/${contactPageId}?acf_format=standard`, {
-      next: { revalidate: 3600 }
-    });
+    // 1. Try by ID if provided in environment
+    if (contactPageId) {
+      const res = await fetch(`${wpApiUrl}/wp-json/wp/v2/pages/${contactPageId}?acf_format=standard`, {
+        next: { revalidate: 3600 }
+      });
 
-    if (!res.ok) {
-        console.warn(`Contact Page ID ${contactPageId} not found, falling back to slug: contact`);
-        // Fallback to slug-based fetch if ID fails
-        const slugs = ['contact', 'contact-me', 'get-in-touch'];
-        for (const slug of slugs) {
-            const slugRes = await fetch(`${wpApiUrl}/wp-json/wp/v2/pages?slug=${slug}&acf_format=standard`, {
-                next: { revalidate: 3600 }
-            });
-            if (slugRes.ok) {
-                const list = await slugRes.json();
-                if (list.length > 0) {
-                    return resolveMedia(list[0].acf || {}, wpApiUrl);
-                }
-            }
+      if (res.ok) {
+        const data: ContactPageData = await res.json();
+        if (data.acf) return resolveMedia(data.acf, wpApiUrl);
+      }
+      console.warn(`Contact Page ID ${contactPageId} not found, trying slugs...`);
+    }
+
+    // 2. Fallback to slug-based fetch
+    const slugs = ['contact', 'contact-me', 'get-in-touch'];
+    for (const slug of slugs) {
+      const slugRes = await fetch(`${wpApiUrl}/wp-json/wp/v2/pages?slug=${slug}&acf_format=standard`, {
+        next: { revalidate: 3600 }
+      });
+      if (slugRes.ok) {
+        const list = await slugRes.json();
+        if (list.length > 0) {
+          return resolveMedia(list[0].acf || {}, wpApiUrl);
         }
-        console.error("Contact page not found by ID or Slug.");
+      }
+    }
+
+    console.error("Contact page not found by ID or Slug.");
         
         // Help the developer find the correct page by listing all pages
         try {
