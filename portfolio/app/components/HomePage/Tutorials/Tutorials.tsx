@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { ACFTutorialsSection, WPTutorial, WPTutorialTaxonomy } from '@/types/acf';
+import Image from 'next/image';
 import Swiper from 'swiper';
 import { Pagination, Autoplay } from 'swiper/modules';
 import 'swiper/css';
@@ -409,13 +410,19 @@ const Tutorials = ({ sectionData, tutorials, taxonomies }: TutorialsProps) => {
                             <span className="sub-heading-tag-1">
                                 <div className="sub-heading-image">
                                     <picture>
-                                        <img
+                                        <Image
                                             src={(typeof sectionData?.sub_heading_icon === 'string' && sectionData.sub_heading_icon !== "")
                                                 ? sectionData.sub_heading_icon
                                                 : (typeof sectionData?.sub_heading_image === 'string' && sectionData.sub_heading_image !== "")
                                                     ? sectionData.sub_heading_image
                                                     : "/images/user-1.svg"}
-                                            alt="Techu Mayur" width="20" height="20" loading="lazy" fetchPriority="high" className="img-fluid"
+                                            alt="Techu Mayur" 
+                                            width={20} 
+                                            height={20} 
+                                            loading="lazy" 
+                                            className="img-fluid"
+                                            style={{ height: 'auto' }}
+                                            unoptimized
                                         />
                                     </picture>
                                 </div>
@@ -436,9 +443,7 @@ const Tutorials = ({ sectionData, tutorials, taxonomies }: TutorialsProps) => {
                                             return (
                                                 <li className="nav-item" role="presentation" key={tax.id}>
                                                     <button className={`nav-link ${index === 0 ? 'active' : ''}`} id={`pills-tab-${tax.id}`} data-bs-toggle="pill" data-bs-target={`#pills-pane-${tax.id}`} type="button" role="tab" aria-selected={index === 0}>
-                                                        <picture>
-                                                            <img src={icon} className="img-fluid" alt={tax.name} height="21" width="21" />
-                                                        </picture>
+                                                        <Image src={icon} className="img-fluid" alt={tax.name} height={21} width={21} style={{ height: 'auto' }} unoptimized />
                                                         <span dangerouslySetInnerHTML={{ __html: tax.name }} />
                                                     </button>
                                                 </li>
@@ -486,18 +491,14 @@ const Tutorials = ({ sectionData, tutorials, taxonomies }: TutorialsProps) => {
                                                                 >
 
                                                                     <div className="video-thumb-wrapper">
-                                                                        <img src={thumb} alt={tutorial.title.rendered} />
+                                                                        <Image src={thumb || "/images/user-1.svg"} alt={tutorial.title.rendered} width={400} height={225} style={{ height: 'auto' }} unoptimized />
                                                                         <div className="video-overlay">
                                                                             <div className="play-btn-large">
-                                                                                <picture>
-                                                                                    <img src="/images/home/play-btn.svg" className="img-fluid" alt="Play" height="16" width="16" />
-                                                                                </picture>
+                                                                                    <Image src="/images/home/play-btn.svg" className="img-fluid" alt="Play" height={16} width={16} style={{ height: 'auto' }} />
                                                                             </div>
                                                                         </div>
                                                                         <span className={`platform-label ${category.toLowerCase().includes('short') ? 'shorts' : category.toLowerCase().includes('reel') ? 'reels' : 'youtube'}`}>
-                                                                            <picture>
-                                                                                <img src={platformIcon} className="img-fluid" alt={category} height="13" width="13" />
-                                                                            </picture>
+                                                                                <Image src={platformIcon} className="img-fluid" alt={category} height={13} width={13} style={{ height: 'auto' }} />
                                                                             {category}
                                                                         </span>
                                                                         {tutorial.acf.duration && <span className="time-badge">{tutorial.acf.duration}</span>}
@@ -508,15 +509,15 @@ const Tutorials = ({ sectionData, tutorials, taxonomies }: TutorialsProps) => {
                                                                         <div className="video-text" dangerouslySetInnerHTML={{ __html: (tutorial.acf.description || tutorial.excerpt?.rendered || tutorial.content?.rendered || '').replace(/<p>|<\/p>/g, '') }} />
                                                                         <div className="video-metrics">
                                                                             <span className="metric">
-                                                                                <picture><img src="/images/home/view.svg" className="img-fluid" alt="Views" height="18" width="18" /></picture>
+                                                                                <Image src="/images/home/view.svg" className="img-fluid" alt="Views" height={18} width={18} style={{ height: 'auto' }} />
                                                                                 {viewsCount}
                                                                             </span>
                                                                             <span className="metric">
-                                                                                <picture><img src="/images/home/heart.svg" className="img-fluid" alt="Likes" height="18" width="18" /></picture>
+                                                                                <Image src="/images/home/heart.svg" className="img-fluid" alt="Likes" height={18} width={18} style={{ height: 'auto' }} />
                                                                                 {likesCount}
                                                                             </span>
                                                                             <span className="metric">
-                                                                                <picture><img src="/images/home/clock.svg" className="img-fluid" alt="Time" height="18" width="18" /></picture>
+                                                                                <Image src="/images/home/clock.svg" className="img-fluid" alt="Time" height={18} width={18} style={{ height: 'auto' }} />
                                                                                 {timeAgoStr}
                                                                             </span>
                                                                         </div>
@@ -533,7 +534,7 @@ const Tutorials = ({ sectionData, tutorials, taxonomies }: TutorialsProps) => {
                                                                                 Watch Now
                                                                             </div>
                                                                             <button className="btn-share" aria-label="btn share" data-bs-toggle="modal" data-bs-target="#shareModal" data-url={videoUrl} data-title={tutorial.title.rendered} onClick={(e) => e.stopPropagation()} data-fancybox-ignore>
-                                                                                <picture><img src="/images/home/share.svg" className="img-fluid" alt="Share" height="20" width="20" /></picture>
+                                                                                <Image src="/images/home/share.svg" className="img-fluid" alt="Share" height={20} width={20} style={{ height: 'auto' }} />
                                                                             </button>
                                                                         </div>
                                                                     </div>
@@ -552,12 +553,12 @@ const Tutorials = ({ sectionData, tutorials, taxonomies }: TutorialsProps) => {
                                     {(sectionData.sidebar_cards || []).map((card, index) => (
                                         <div className="sidebar-card" key={index}>
                                             <h4 className="sidebar-title">
-                                                <picture><img src={(typeof card.icon === 'object' && card.icon !== null && 'url' in card.icon ? (card.icon as { url: string }).url : (typeof card.icon === 'string' ? card.icon : "/images/home/youtube-icon.svg"))} className="img-fluid" alt={card.title} height="25" width="25" /></picture>
+                                                <Image src={(typeof card.icon === 'object' && card.icon !== null && 'url' in card.icon ? (card.icon as { url: string }).url : (typeof card.icon === 'string' ? card.icon : "/images/home/youtube-icon.svg"))} className="img-fluid" alt={card.title} height={25} width={25} style={{ height: 'auto' }} unoptimized />
                                                 {card.title}
                                             </h4>
                                             <div className="stat-item">
                                                 <div className="stat-icon">
-                                                    <picture><img src={(typeof card.icon === 'object' && card.icon !== null && 'url' in card.icon ? (card.icon as { url: string }).url : (typeof card.icon === 'string' ? card.icon : ""))} className="img-fluid" alt={card.title} height="25" width="25" /></picture>
+                                                    <Image src={(typeof card.icon === 'object' && card.icon !== null && 'url' in card.icon ? (card.icon as { url: string }).url : (typeof card.icon === 'string' ? card.icon : ""))} className="img-fluid" alt={card.title} height={25} width={25} style={{ height: 'auto' }} unoptimized />
                                                 </div>
                                                 <div className="stat-content">
                                                     <div className="stat-value" data-target={parseInt(card.stat_value.replace(/\D/g, '')) || 0}>0+</div>
@@ -574,12 +575,12 @@ const Tutorials = ({ sectionData, tutorials, taxonomies }: TutorialsProps) => {
                                                 <div className="swiper-slide mb-5" key={index}>
                                                     <div className="sidebar-card m-0 h-100">
                                                         <h3 className="sidebar-title">
-                                                            <picture><img src={(typeof card.icon === 'object' && card.icon !== null && 'url' in card.icon ? (card.icon as { url: string }).url : (typeof card.icon === 'string' ? card.icon : ""))} className="img-fluid" alt={card.title} height="25" width="25" /></picture>
+                                                                <Image src={(typeof card.icon === 'object' && card.icon !== null && 'url' in card.icon ? (card.icon as { url: string }).url : (typeof card.icon === 'string' ? card.icon : ""))} className="img-fluid" alt={card.title} height={25} width={25} style={{ height: 'auto' }} unoptimized />
                                                             {card.title}
                                                         </h3>
                                                         <div className="stat-item">
                                                             <div className="stat-icon">
-                                                                <picture><img src={(typeof card.icon === 'object' && card.icon !== null && 'url' in card.icon ? (card.icon as { url: string }).url : (typeof card.icon === 'string' ? card.icon : ""))} className="img-fluid" alt={card.title} height="25" width="25" /></picture>
+                                                                    <Image src={(typeof card.icon === 'object' && card.icon !== null && 'url' in card.icon ? (card.icon as { url: string }).url : (typeof card.icon === 'string' ? card.icon : ""))} className="img-fluid" alt={card.title} height={25} width={25} style={{ height: 'auto' }} unoptimized />
                                                             </div>
                                                             <div className="stat-content">
                                                                 <div className="stat-value" data-target={parseInt(card.stat_value.replace(/\D/g, '')) || 0}>0+</div>
@@ -608,12 +609,12 @@ const Tutorials = ({ sectionData, tutorials, taxonomies }: TutorialsProps) => {
                             <div className="share-modal-content">
                                 <h3 className="share-title">Share This Tutorial</h3>
                                 <div className="social-buttons">
-                                    <a href="#" className="social-btn facebook" id="facebookShare"><picture><img src="/images/social-media/facebook.svg" className="img-fluid" alt="Facebook" height="30" width="30" /></picture><span>Facebook</span></a>
-                                    <a href="#" className="social-btn twitter" id="twitterShare"><picture><img src="/images/social-media/twitter.svg" className="img-fluid" alt="Twitter" height="30" width="30" /></picture><span>Twitter</span></a>
-                                    <a href="#" className="social-btn linkedin" id="linkedinShare"><picture><img src="/images/social-media/linkedin.svg" className="img-fluid" alt="LinkedIn" height="30" width="30" /></picture><span>LinkedIn</span></a>
-                                    <a href="#" className="social-btn whatsapp" id="whatsappShare"><picture><img src="/images/social-media/whatsapp.svg" className="img-fluid" alt="WhatsApp" height="30" width="30" /></picture><span>WhatsApp</span></a>
-                                    <a href="#" className="social-btn telegram" id="telegramShare"><picture><img src="/images/social-media/telegram.svg" className="img-fluid" alt="Telegram" height="30" width="30" /></picture><span>Telegram</span></a>
-                                    <a href="#" className="social-btn email" id="emailShare"><picture><img src="/images/social-media/gmail.svg" className="img-fluid" alt="Email" height="30" width="30" /></picture><span>Email</span></a>
+                                    <a href="#" className="social-btn facebook" id="facebookShare"><Image src="/images/social-media/facebook.svg" className="img-fluid" alt="Facebook" height={30} width={30} style={{ height: 'auto' }} /><span>Facebook</span></a>
+                                    <a href="#" className="social-btn twitter" id="twitterShare"><Image src="/images/social-media/twitter.svg" className="img-fluid" alt="Twitter" height={30} width={30} style={{ height: 'auto' }} /><span>Twitter</span></a>
+                                    <a href="#" className="social-btn linkedin" id="linkedinShare"><Image src="/images/social-media/linkedin.svg" className="img-fluid" alt="LinkedIn" height={30} width={30} style={{ height: 'auto' }} /><span>LinkedIn</span></a>
+                                    <a href="#" className="social-btn whatsapp" id="whatsappShare"><Image src="/images/social-media/whatsapp.svg" className="img-fluid" alt="WhatsApp" height={30} width={30} style={{ height: 'auto' }} /><span>WhatsApp</span></a>
+                                    <a href="#" className="social-btn telegram" id="telegramShare"><Image src="/images/social-media/telegram.svg" className="img-fluid" alt="Telegram" height={30} width={30} style={{ height: 'auto' }} /><span>Telegram</span></a>
+                                    <a href="#" className="social-btn email" id="emailShare"><Image src="/images/social-media/gmail.svg" className="img-fluid" alt="Email" height={30} width={30} style={{ height: 'auto' }} /><span>Email</span></a>
                                 </div>
                                 <div className="copy-link-section">
                                     <div className="copy-link-wrapper">

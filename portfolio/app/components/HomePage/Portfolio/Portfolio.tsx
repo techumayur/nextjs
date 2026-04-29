@@ -23,7 +23,7 @@ const ProjectCard = ({ item, taxonomies }: { item: WPPortfolioItem, taxonomies: 
         <Link href={`/portfolio/${item.slug}`} className="project-card">
             <div className="project-image-wrapper">
                 {featuredMedia?.source_url ? (
-                    <Image className="project-image" src={featuredMedia.source_url} alt={featuredMedia.alt_text || item.title.rendered} width={1000} height={320} unoptimized />
+                    <Image className="project-image" src={featuredMedia.source_url} alt={featuredMedia.alt_text || item.title.rendered} width={1000} height={320} style={{ height: 'auto' }} unoptimized />
                 ) : (
                     <div className="project-image" style={{ backgroundColor: '#2b2b2b', display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%', minHeight: '300px' }}>
                         No Image
@@ -150,9 +150,16 @@ const Portfolio = ({ data, items, taxonomies }: PortfolioDataProps) => {
                                     <div className="section-title">
                                         <span className="sub-heading-tag-1">
                                             <div className="sub-heading-image">
-                                                <picture>
-                                                    <img src="/images/user-1.svg" alt="Icon" width="20" height="20" loading="lazy" fetchPriority="high" className="img-fluid" />
-                                                </picture>
+                                                <Image 
+                                                    src="/images/user-1.svg" 
+                                                    alt="Icon" 
+                                                    width={20} 
+                                                    height={20} 
+                                                    loading="lazy" 
+                                                    className="img-fluid"
+                                                    style={{ height: 'auto' }}
+                                                    unoptimized
+                                                />
                                             </div>
                                             {data.sub_heading}
                                         </span>

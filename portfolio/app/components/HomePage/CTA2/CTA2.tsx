@@ -1,5 +1,6 @@
 "use client";
 import React from 'react';
+import Image from 'next/image';
 import { ACFCTA2 } from '@/types/acf';
 
 interface CTA2Props {
@@ -40,9 +41,16 @@ const CTA2 = ({ data }: CTA2Props) => {
                                 <div className="section-title section-title-center">
                                     <span className="sub-heading-tag-1">
                                         <div className="sub-heading-image">
-                                            <picture>
-                                                <img src="/images/user-1.svg" alt="Icon" width="20" height="20" loading="lazy" fetchPriority="high" className="img-fluid" />
-                                            </picture>
+                                            <Image 
+                                                src="/images/user-1.svg" 
+                                                alt="Icon" 
+                                                width={20} 
+                                                height={20} 
+                                                loading="lazy" 
+                                                className="img-fluid" 
+                                                style={{ height: 'auto' }}
+                                                unoptimized
+                                            />
                                         </div>
                                         {subHeading}
                                     </span>
@@ -82,9 +90,7 @@ const CTA2 = ({ data }: CTA2Props) => {
                                             return (
                                                 <div className="cta-stat-item" key={index}>
                                                     <div className="cta-stat-icon">
-                                                        <picture>
-                                                            <img src={icon} className="img-fluid" alt={item.title} height="30" width="30" />
-                                                        </picture>
+                                                        <Image src={icon} className="img-fluid" alt={item.title} height={30} width={30} style={{ height: 'auto' }} unoptimized />
                                                     </div>
                                                     <h3 className="cta-stat-title">{item.title}</h3>
                                                     <p className="cta-stat-text">{item.text}</p>
@@ -103,9 +109,7 @@ const CTA2 = ({ data }: CTA2Props) => {
                                                 const icon = typeof link.icon === 'string' ? link.icon : "/images/home/seo-icon.svg";
                                                 return (
                                                     <div className="cta-seo-link" key={index}>
-                                                        <picture>
-                                                            <img src={icon} className="img-fluid" alt={link.label} height="14" width="14" />
-                                                        </picture>
+                                                        <Image src={icon} className="img-fluid" alt={link.label} height={14} width={14} style={{ height: 'auto' }} unoptimized />
                                                         {link.label}
                                                     </div>
                                                 );

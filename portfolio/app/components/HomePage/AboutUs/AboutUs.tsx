@@ -342,7 +342,7 @@ export default function AboutUs({ data }: { data?: AboutUsData }) {
               <div className="sub-heading-image">
                 {data?.profile_image && (
                   <picture>
-                    <Image src={data.profile_image} alt={data?.name || ""} width={20} height={20} loading="lazy" fetchPriority="high" className="img-fluid" unoptimized />
+                    <Image src={data.profile_image} alt={data?.name || ""} width={20} height={20} loading="lazy" className="img-fluid" style={{ height: 'auto' }} unoptimized />
                   </picture>
                 )}
               </div>
@@ -353,7 +353,7 @@ export default function AboutUs({ data }: { data?: AboutUsData }) {
                 {data?.profile_image && (
                   <div className="profile-image">
                     <picture>
-                      <Image src={data.profile_image} alt={data?.name || ""} width={45} height={45} loading="lazy" fetchPriority="high" className="img-fluid" unoptimized />
+                      <Image src={data.profile_image} alt={data?.name || ""} width={45} height={45} loading="lazy" className="img-fluid" style={{ height: 'auto' }} unoptimized />
                     </picture>
                   </div>
                 )}
@@ -375,7 +375,7 @@ export default function AboutUs({ data }: { data?: AboutUsData }) {
                         <div className="icon-wrapper">
                           {feature.icon && (
                             <picture>
-                              <Image src={feature.icon} alt={feature.title || `Feature`} width={30} height={30} fetchPriority="high" className="img-fluid" loading="lazy" unoptimized />
+                              <Image src={feature.icon} alt={feature.title || `Feature`} width={30} height={30} className="img-fluid" style={{ height: 'auto' }} loading="lazy" unoptimized />
                             </picture>
                           )}
                         </div>

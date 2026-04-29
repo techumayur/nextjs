@@ -66,6 +66,7 @@ const AboutMeIntro: React.FC<AboutMeIntroProps> = ({ data }) => {
                                         height={20} 
                                         className="img-fluid" 
                                         priority
+                                        style={{ height: 'auto' }}
                                         unoptimized
                                     />
                                 </div>
@@ -85,6 +86,7 @@ const AboutMeIntro: React.FC<AboutMeIntroProps> = ({ data }) => {
                                         width={200} 
                                         height={200} 
                                         className="profile-image"
+                                        style={{ height: 'auto' }}
                                         unoptimized
                                     />
                                     <div className="profile-status"></div>
@@ -107,6 +109,7 @@ const AboutMeIntro: React.FC<AboutMeIntroProps> = ({ data }) => {
                                                     width={20} 
                                                     height={20} 
                                                     className="img-fluid" 
+                                                    style={{ height: 'auto' }}
                                                     unoptimized
                                                 />
                                             </Link>
@@ -134,6 +137,7 @@ const AboutMeIntro: React.FC<AboutMeIntroProps> = ({ data }) => {
                                         width={30} 
                                         height={30} 
                                         className="img-fluid" 
+                                        style={{ height: 'auto' }}
                                         unoptimized
                                     />
                                     <span dangerouslySetInnerHTML={{ __html: parseHtml(data.story_title) }} />

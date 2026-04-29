@@ -3,6 +3,7 @@
 import React, { useEffect } from 'react';
 import Swiper from 'swiper';
 import { Pagination } from 'swiper/modules';
+import Image from 'next/image';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import './Stats.css';
@@ -107,9 +108,7 @@ export default function Stats({ data }: { data?: StatsData }) {
                         <div className="section-title section-title-center">
                             <div className="sub-heading-tag-2">
                                 <div className="sub-heading-image">
-                                    <picture>
-                                        <img src="/images/user-2.svg" alt="Techu Mayur" width="20" height="20" loading="lazy" fetchPriority="high" className="img-fluid" />
-                                    </picture>
+                                        <Image src="/images/user-2.svg" alt="Techu Mayur" width={20} height={20} loading="lazy" className="img-fluid" style={{ height: 'auto' }} />
                                 </div>
                                 {data?.sub_heading}
                             </div>
@@ -129,9 +128,7 @@ export default function Stats({ data }: { data?: StatsData }) {
                                                 <div className="icon-wrapper">
                                                     <div className="icon-bg"></div>
                                                     <div className="pulse-ring"></div>
-                                                    <picture>
-                                                        <img src={item.icon || ""} alt={item.title} width="40" height="40" className="img-fluid" loading="lazy" />
-                                                    </picture>
+                                                    <Image src={item.icon || "/images/user-2.svg"} alt={item.title} width={40} height={40} className="img-fluid" loading="lazy" style={{ height: 'auto' }} unoptimized />
                                                 </div>
                                                 <div className="stat-content">
                                                     <div className="stat-number-wrapper">

@@ -1,6 +1,7 @@
 "use client";
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ACFCTA, ACFImage } from '@/types/acf';
 
 interface CTA1Props {
@@ -36,16 +37,16 @@ export default function CTA1({ data }: CTA1Props) {
                     <div className="row align-items-center g-5">
                         <div className="col-lg-7 text-lg-start text-center">
                             <span className="badge mb-3">
-                                <picture>
-                                    <img 
+                                    <Image 
                                         src={badgeIcon} 
                                         alt="Badge Icon" 
-                                        width="20" 
-                                        height="20" 
+                                        width={20} 
+                                        height={20} 
                                         className="img-fluid" 
                                         loading="lazy" 
+                                        style={{ height: 'auto' }}
+                                        unoptimized
                                     />
-                                </picture>
                                 {iconLabel}
                             </span>
                             <h2 className="main-heading" dangerouslySetInnerHTML={{ __html: heading }} />

@@ -586,6 +586,7 @@ export interface ACFTutorialsSection {
 export interface WPTutorial {
   id: number;
   date: string;
+  slug: string;
   title: { rendered: string };
   content?: { rendered: string };
   excerpt?: { rendered: string };

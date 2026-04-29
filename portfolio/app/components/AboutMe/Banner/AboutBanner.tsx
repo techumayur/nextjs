@@ -1,4 +1,4 @@
-import React from 'react';
+import Image from 'next/image';
 import { ACFAboutPage } from "@/types/acf";
 import { parseHtml } from "@/app/lib/parseHtml";
 
@@ -23,25 +23,23 @@ const AboutBanner: React.FC<AboutBannerProps> = ({ data }) => {
           <div className="col-12">
             <div className="banner-content-wrapper text-center">
               {data.sub_heading && (
-                <span 
-                  className="sub-heading-tag-1 d-inline-flex align-items-center mb-3"
-                  dangerouslySetInnerHTML={{ 
-                    __html: `
-                      ${data.sub_heading_icon ? `
-                        <div class="sub-heading-image d-inline-block me-2">
-                          <img 
-                            src="${data.sub_heading_icon}" 
-                            alt="${data.sub_heading}" 
-                            width="20" 
-                            height="20" 
-                            class="img-fluid"
-                          />
-                        </div>
-                      ` : ''}
-                      ${parseHtml(data.sub_heading)}
-                    `
-                  }}
-                />
+                <span className="sub-heading-tag-1 d-inline-flex align-items-center mb-3">
+                  {data.sub_heading_icon && (
+                    <div className="sub-heading-image d-inline-block me-2">
+                      <Image 
+                        src={data.sub_heading_icon} 
+                        alt={data.sub_heading} 
+                        width={20} 
+                        height={20} 
+                        className="img-fluid"
+                        style={{ height: 'auto' }}
+                        priority
+                        unoptimized
+                      />
+                    </div>
+                  )}
+                  <span dangerouslySetInnerHTML={{ __html: parseHtml(data.sub_heading) }} />
+                </span>
               )}
               {data.heading && (
                 <h1 dangerouslySetInnerHTML={{ __html: parseHtml(data.heading) }} />

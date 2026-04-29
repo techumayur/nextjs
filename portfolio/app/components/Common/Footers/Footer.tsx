@@ -197,6 +197,7 @@ export default function Footer({
                       height={50}
                       unoptimized
                       className="img-fluid"
+                      style={{ height: 'auto' }}
                     />
                   )}
                 </Link>

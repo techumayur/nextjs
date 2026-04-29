@@ -1,20 +1,15 @@
 import { WPTutorial, WPTutorialTaxonomy } from "@/types/acf";
+import { wpFetch, resolveMedia } from "./wpUtils";
 
 export async function getTutorials(): Promise<WPTutorial[]> {
-  const baseUrl = process.env.NEXT_PUBLIC_WP_API_URL;
-  if (!baseUrl) throw new Error("WP API URL not defined");
-
-  const res = await fetch(`${baseUrl}/wp-json/wp/v2/tutorial?_embed&per_page=100`, {
-        next: { revalidate: 3600 },
+  const tutorials = await wpFetch<WPTutorial[]>('/wp-json/wp/v2/tutorial', {
+    params: { _embed: '', per_page: 100 }
   });
 
-  if (!res.ok) return [];
-
-  const tutorials: WPTutorial[] = await res.json();
+  if (!tutorials) return [];
   
   // Resolve featured media for thumbnail if ACF thumbnail is missing
   tutorials.forEach(tutorial => {
-      // Ensure acf exists and is an object
       if (!tutorial.acf || Array.isArray(tutorial.acf)) {
           tutorial.acf = {} as WPTutorial['acf'];
       }
@@ -25,8 +20,8 @@ export async function getTutorials(): Promise<WPTutorial[]> {
           if (featuredMedia) {
               acf.thumbnail = featuredMedia;
           }
-      } else if (typeof acf.thumbnail === 'object' && acf.thumbnail && (acf.thumbnail as { url: string }).url) {
-          acf.thumbnail = (acf.thumbnail as { url: string }).url;
+      } else {
+          acf.thumbnail = resolveMedia(acf.thumbnail, {});
       }
   });
 
@@ -34,21 +29,16 @@ export async function getTutorials(): Promise<WPTutorial[]> {
 }
 
 export async function getTutorialTaxonomies(): Promise<WPTutorialTaxonomy[]> {
-  const baseUrl = process.env.NEXT_PUBLIC_WP_API_URL;
-  if (!baseUrl) throw new Error("WP API URL not defined");
-
-  const res = await fetch(`${baseUrl}/wp-json/wp/v2/tutorials-taxonomy?per_page=100`, {
-        next: { revalidate: 3600 },
+  const taxonomies = await wpFetch<WPTutorialTaxonomy[]>('/wp-json/wp/v2/tutorials-taxonomy', {
+    params: { per_page: 100 }
   });
 
-  if (!res.ok) return [];
-
-  const taxonomies: WPTutorialTaxonomy[] = await res.json();
+  if (!taxonomies) return [];
 
   // Resolve ACF icons
   taxonomies.forEach(tax => {
-    if (tax.acf?.icon && typeof tax.acf.icon === 'object' && tax.acf.icon && (tax.acf.icon as { url: string }).url) {
-        tax.acf.icon = (tax.acf.icon as { url: string }).url;
+    if (tax.acf?.icon) {
+        tax.acf.icon = resolveMedia(tax.acf.icon, {});
     }
   });
 
@@ -56,16 +46,8 @@ export async function getTutorialTaxonomies(): Promise<WPTutorialTaxonomy[]> {
 }
 
 export async function getTutorialTags(): Promise<WPTutorialTaxonomy[]> {
-  const baseUrl = process.env.NEXT_PUBLIC_WP_API_URL;
-  if (!baseUrl) throw new Error("WP API URL not defined");
-
-  // Fetch 'tutorials-tag' taxonomy
-  const res = await fetch(`${baseUrl}/wp-json/wp/v2/tutorials-tag?per_page=100`, {
-        next: { revalidate: 3600 },
+  const tags = await wpFetch<WPTutorialTaxonomy[]>('/wp-json/wp/v2/tutorials-tag', {
+    params: { per_page: 100 }
   });
-
-  if (!res.ok) return [];
-
-  const tags: WPTutorialTaxonomy[] = await res.json();
-  return tags;
+  return tags || [];
 }

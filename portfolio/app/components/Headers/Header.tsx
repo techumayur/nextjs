@@ -161,7 +161,7 @@ function DesktopMegaMenu({
                   <div className="mega-grid-icon">
                     <picture>
                       {icon && (
-                        <Image src={icon} alt={item.title} width={35} height={35} loading="lazy" className="img-fluid" />
+                        <Image src={icon} alt={item.title} width={35} height={35} loading="lazy" className="img-fluid" style={{ height: 'auto' }} />
                       )}
                     </picture>
                   </div>
@@ -237,7 +237,7 @@ function MobileAccordion({ id, icon, label, parentId, items, normalizeUrl, activ
             <span className="mobile-nav-icon">
               <picture>
                 {icon && (
-                  <Image src={icon} alt={label} width={20} height={20} loading="lazy" className="img-fluid" />
+                  <Image src={icon} alt={label} width={20} height={20} loading="lazy" className="img-fluid" style={{ height: 'auto' }} />
                 )}
               </picture>
             </span>
@@ -255,7 +255,7 @@ function MobileAccordion({ id, icon, label, parentId, items, normalizeUrl, activ
                       <div className="mega-menu-icon">
                         <picture>
                           {icon && (
-                            <Image src={icon} alt={item.title} width={30} height={30} loading="lazy" className="img-fluid" />
+                            <Image src={icon} alt={item.title} width={30} height={30} loading="lazy" className="img-fluid" style={{ height: 'auto' }} />
                           )}
                         </picture>
                       </div>
@@ -376,8 +376,10 @@ export default function Header({ menuData = [] }: { menuData?: MenuItem[] }) {
                   width={200}
                   height={67}
                   priority
+                  loading="eager"
                   unoptimized
                   className="img-fluid"
+                  style={{ height: 'auto' }}
                 />
               )}
             </picture>
@@ -427,6 +429,7 @@ export default function Header({ menuData = [] }: { menuData?: MenuItem[] }) {
                       height={67}
                       unoptimized
                       className="img-fluid white-image"
+                      style={{ height: 'auto' }}
                     />
                   )}
                 </picture>
@@ -525,6 +528,7 @@ export default function Header({ menuData = [] }: { menuData?: MenuItem[] }) {
                                   height={20}
                                   loading="lazy"
                                   className="img-fluid"
+                                  style={{ height: 'auto' }}
                                 />
                               )}
                             </picture>

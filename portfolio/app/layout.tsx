@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Header from "./components/Headers/Header";
 import Footer from "./components/Common/Footers/Footer";
 import ScrollToTop from "./components/Common/ScrollToTop";
+import Preloader from "./components/Common/Preloader/Preloader";
 import ThemeProvider from "./providers";
 import BootstrapJS from "./components/Common/BootstrapJS";
 import { getTheme } from "@/app/lib/getTheme";
@@ -11,6 +12,7 @@ import { themeToCSS } from "@/app/lib/themeToCSS";
 import { getMenu } from "@/app/lib/getMenu";
 import "./globals.css";
 import "./globals-responsive.css";
+import StructuredData from "./components/Common/StructuredData";
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.techumayur.in"),
   title: {
@@ -141,6 +143,10 @@ export default async function RootLayout({
             style={{ display: "none", visibility: "hidden" }}
           ></iframe>
         </noscript>
+        <StructuredData theme={theme} />
+        { (theme?.loader === true || theme?.loader === "true" || theme?.loader === 1 || theme?.loader === "1") && (
+          <Preloader logo={typeof theme?.header_logo === 'string' ? theme.header_logo : theme?.header_logo?.url || "/images/logo.svg"} />
+        )}
         <ThemeProvider initialTheme={theme}>
           <ScrollToTop />
           <Header menuData={menuData} />

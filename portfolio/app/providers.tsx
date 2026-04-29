@@ -100,7 +100,7 @@ export default function ThemeProvider({
 
     return (
         <ThemeContext.Provider value={{ theme }}>
-            {loading && isLoaderEnabled && <Loader />}
+            {/* {loading && isLoaderEnabled && <Loader />} */}
             {children}
         </ThemeContext.Provider>
     );

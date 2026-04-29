@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ACFBlogsSection, WPBlogPost } from '@/types/acf';
 
 interface BlogsProps {
@@ -61,12 +62,18 @@ const Blogs = ({ sectionData, blogs }: BlogsProps) => {
                                 <span className="sub-heading-tag-1">
                                     <div className="sub-heading-image">
                                         <picture>
-                                            <img 
-                                                src={(typeof sectionData?.sub_heading_icon === 'string' && sectionData.sub_heading_icon !== "") 
-                                                    ? sectionData.sub_heading_icon 
-                                                    : sectionSubHeadingImage || "/images/user-1.svg"} 
-                                                alt="Icon" width="20" height="20" loading="lazy" fetchPriority="high" className="img-fluid" 
-                                            />
+                                        <Image 
+                                            src={(typeof sectionData?.sub_heading_icon === 'string' && sectionData.sub_heading_icon !== "") 
+                                                ? sectionData.sub_heading_icon 
+                                                : sectionSubHeadingImage || "/images/user-1.svg"} 
+                                            alt="Icon" 
+                                            width={20} 
+                                            height={20} 
+                                            loading="lazy" 
+                                            className="img-fluid" 
+                                            style={{ height: 'auto' }}
+                                            unoptimized
+                                        />
                                         </picture>
                                     </div>
                                     {sectionSubHeading}
@@ -109,7 +116,14 @@ const Blogs = ({ sectionData, blogs }: BlogsProps) => {
                             <div className="col-lg-6 col-xl-4">
                                 <article className="featured-card h-100">
                                     <Link href={`/blogs/${featuredBlog.slug}`}>
-                                        <img src={getFeaturedImage(featuredBlog)} alt={featuredBlog.title.rendered} />
+                                        <Image 
+                                            src={getFeaturedImage(featuredBlog)} 
+                                            alt={featuredBlog.title.rendered} 
+                                            width={600} 
+                                            height={400} 
+                                            style={{ height: 'auto' }}
+                                            unoptimized
+                                        />
                                         <div className="featured-content">
                                             <span className="featured-badge">{getCategory(featuredBlog)}</span>
                                             <h3 className="featured-title" dangerouslySetInnerHTML={{ __html: featuredBlog.title.rendered }} />
@@ -163,7 +177,14 @@ const Blogs = ({ sectionData, blogs }: BlogsProps) => {
                             {middleBlogs.map((blog) => (
                                 <Link key={blog.id} href={`/blogs/${blog.slug}`} className="small-blog-card d-flex align-items-start p-3">
                                     <div className="small-icon me-3">
-                                        <img src={getFeaturedImage(blog)} alt={blog.title.rendered} />
+                                        <Image 
+                                            src={getFeaturedImage(blog)} 
+                                            alt={blog.title.rendered} 
+                                            width={80} 
+                                            height={80} 
+                                            style={{ height: 'auto' }}
+                                            unoptimized
+                                        />
                                     </div>
                                     <div>
                                         <span className="small-category">{getCategory(blog)}</span>
@@ -184,7 +205,15 @@ const Blogs = ({ sectionData, blogs }: BlogsProps) => {
                             {rightBlogs.map((blog) => (
                                 <article key={blog.id} className="large-blog-card position-relative h-100">
                                     <Link href={`/blogs/${blog.slug}`}>
-                                        <img src={getFeaturedImage(blog)} className="w-100" alt={blog.title.rendered} />
+                                        <Image 
+                                            src={getFeaturedImage(blog)} 
+                                            className="w-100" 
+                                            alt={blog.title.rendered} 
+                                            width={400} 
+                                            height={250} 
+                                            style={{ height: 'auto' }}
+                                            unoptimized
+                                        />
                                         <div className="large-card-content">
                                             <span className="large-badge">{getCategory(blog)}</span>
                                             <h3 className="large-title" dangerouslySetInnerHTML={{ __html: blog.title.rendered }} />

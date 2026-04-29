@@ -48,6 +48,7 @@ const CTA = ({ data }: CTAProps) => {
                                                                 width={20} 
                                                                 height={20} 
                                                                 className="img-fluid" 
+                                                                style={{ height: 'auto' }}
                                                                 unoptimized
                                                             />
                                                         );
@@ -61,6 +62,7 @@ const CTA = ({ data }: CTAProps) => {
                                                 src={mainIconUrl}
                                                 alt="CTA Icon"
                                                 width={50} height={50} loading="lazy" className="img-fluid"
+                                                style={{ height: 'auto' }}
                                                 unoptimized
                                             />
                                         </div>
@@ -99,6 +101,7 @@ const CTA = ({ data }: CTAProps) => {
                                                             height={20}
                                                             loading="lazy"
                                                             className="img-fluid"
+                                                            style={{ height: 'auto' }}
                                                             onError={(e) => { (e.target as HTMLImageElement).src = "/images/home/fast-load.svg" }}
                                                             unoptimized
                                                         />

@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 import { ACFContactSection } from '@/types/acf';
 import { parseHtml } from '@/app/lib/parseHtml';
 import './Contact.css';
@@ -101,15 +102,22 @@ const Contact = ({ sectionData }: ContactProps) => {
                     <div className="col-12">
                         <div className="section-title section-title-center">
                             <span className="sub-heading-tag-2">
-                                <div className="sub-heading-image">
-                                    <picture>
-                                        <img src={(typeof sectionData?.sub_heading_icon === 'string' && sectionData.sub_heading_icon !== "") 
-                                            ? sectionData.sub_heading_icon 
-                                            : (typeof sectionData?.sub_heading_image === 'string' && sectionData.sub_heading_image !== "")
-                                              ? sectionData.sub_heading_image
-                                              : "/images/user-2.svg"} alt="Techu Mayur" width="20" height="20" loading="lazy" fetchPriority="high" className="img-fluid" />
-                                    </picture>
-                                </div>
+                                    <div className="sub-heading-image">
+                                        <Image 
+                                            src={(typeof sectionData?.sub_heading_icon === 'string' && sectionData.sub_heading_icon !== "") 
+                                                ? sectionData.sub_heading_icon 
+                                                : (typeof sectionData?.sub_heading_image === 'string' && sectionData.sub_heading_image !== "")
+                                                  ? sectionData.sub_heading_image
+                                                  : "/images/user-2.svg"} 
+                                            alt="Techu Mayur" 
+                                            width={20} 
+                                            height={20} 
+                                            loading="lazy" 
+                                            className="img-fluid"
+                                            style={{ height: 'auto' }}
+                                            unoptimized
+                                        />
+                                    </div>
                                 {sectionData?.sub_heading}
                             </span>
                             <h2>
@@ -245,9 +253,14 @@ const Contact = ({ sectionData }: ContactProps) => {
                                         {sectionData?.contact_info?.map((item, idx) => (
                                             <div className="contact-info-item" key={idx}>
                                                 <div className="info-icon">
-                                                    <picture>
-                                                        <img src={typeof item.icon === 'string' ? item.icon : (item.icon as { url: string })?.url || ""} alt={item.title} width="24" height="24" />
-                                                    </picture>
+                                                    <Image 
+                                                        src={typeof item.icon === 'string' ? item.icon : (item.icon as { url: string })?.url || ""} 
+                                                        alt={item.title} 
+                                                        width={24} 
+                                                        height={24} 
+                                                        style={{ height: 'auto' }}
+                                                        unoptimized
+                                                    />
                                                 </div>
                                                 <div className="info-content">
                                                     <h4>{item.title}</h4>
@@ -272,9 +285,14 @@ const Contact = ({ sectionData }: ContactProps) => {
                                                         aria-label={social.label}
                                                         title={social.label}
                                                     >
-                                                        <picture>
-                                                            <img src={typeof social.icon === 'string' ? social.icon : (social.icon as { url: string })?.url || ""} alt={social.label} width="16" height="16" />
-                                                        </picture>
+                                                        <Image 
+                                                            src={typeof social.icon === 'string' ? social.icon : (social.icon as { url: string })?.url || ""} 
+                                                            alt={social.label} 
+                                                            width={16} 
+                                                            height={16} 
+                                                            style={{ height: 'auto' }}
+                                                            unoptimized
+                                                        />
                                                     </a>
                                                 ))}
                                             </div>

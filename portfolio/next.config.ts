@@ -1,5 +1,7 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+import type { NextConfig } from 'next';
+import withBundleAnalyzer from '@next/bundle-analyzer';
+
+const nextConfig: NextConfig = {
   output: 'standalone',
   reactStrictMode: true,
   typescript: {
@@ -7,6 +9,7 @@ const nextConfig = {
   },
   images: {
     unoptimized: true, // 🔥 COMPLETELY DISABLE SERVER-SIDE PROCESSING
+    formats: ['image/avif', 'image/webp'] as const,
     remotePatterns: [
       {
         protocol: "http",
@@ -40,6 +43,9 @@ const nextConfig = {
       },
     ],
   },
+  experimental: {
+    optimizePackageImports: ['gsap', 'swiper', 'react-bootstrap'],
+  },
   async headers() {
     return [
       {
@@ -72,4 +78,6 @@ const nextConfig = {
   },
 };
 
-export default nextConfig;
+export default withBundleAnalyzer({
+  enabled: process.env.ANALYZE === 'true',
+})(nextConfig);

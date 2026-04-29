@@ -53,6 +53,7 @@ export default function SkillsSection({ skillsData }: SkillsSectionProps) {
                                                     width={30}
                                                     height={30}
                                                     className="img-fluid"
+                                                    style={{ height: 'auto' }}
                                                     unoptimized={skill.icon.toLowerCase().endsWith('.svg') || skill.icon.includes('.svg?')}
                                                 />
                                             )}

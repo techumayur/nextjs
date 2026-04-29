@@ -55,12 +55,17 @@ const SourceCode = ({ sectionData, projects, taxonomies }: SourceCodeProps) => {
                             <span className="sub-heading-tag-1">
                                 <div className="sub-heading-image">
                                     <picture>
-                                        <img 
+                                        <Image 
                                             src={(typeof sectionData?.sub_heading_icon === 'string' && sectionData.sub_heading_icon !== "")
                                                 ? sectionData.sub_heading_icon
-                                                : getImageUrl(sectionData?.sub_heading_image) || ""} 
-                                            alt="Icon" width="20" height="20" loading="lazy" 
-                                            fetchPriority="high" className="img-fluid" 
+                                                : getImageUrl(sectionData?.sub_heading_image) || "/images/user-1.svg"} 
+                                            alt="Icon" 
+                                            width={20} 
+                                            height={20} 
+                                            loading="lazy" 
+                                            className="img-fluid"
+                                            style={{ height: 'auto' }}
+                                            unoptimized
                                         />
                                     </picture>
                                 </div>
@@ -89,9 +94,13 @@ const SourceCode = ({ sectionData, projects, taxonomies }: SourceCodeProps) => {
                                         {project.acf?.is_featured && <span className="feature-tag">Featured</span>}
                                         <div className="bento-image">
                                             {getProjectImage(project) && (
-                                                <img 
+                                                <Image 
                                                     src={getProjectImage(project)} 
                                                     alt={project.title?.rendered || "Project Thumbnail"} 
+                                                    width={500}
+                                                    height={300}
+                                                    style={{ height: 'auto' }}
+                                                    unoptimized
                                                 />
                                             )}
                                         </div>
@@ -112,22 +121,22 @@ const SourceCode = ({ sectionData, projects, taxonomies }: SourceCodeProps) => {
                                             <div className="bento-footer">
                                                 <div className="bento-actions">
                                                     <Link href={`/source-code/${project.slug}`} className="icon-btn btn-view" title="View Details">
-                                                        <picture><img src="/images/home/view.svg" alt="View" width="25" height="25" loading="lazy" className="img-fluid" /></picture>
+                                                        <Image src="/images/home/view.svg" alt="View" width={25} height={25} loading="lazy" className="img-fluid" style={{ height: 'auto' }} />
                                                     </Link>
                                                     <a href={project.acf?.download_button || project.acf?.download_link || project.acf?.license_section?.download_link || "#"} className="icon-btn btn-download" title="Download Source" target="_blank" rel="noopener noreferrer">
-                                                        <picture><img src="/images/home/downloads.svg" alt="Download" width="25" height="25" loading="lazy" className="img-fluid" /></picture>
+                                                        <Image src="/images/home/downloads.svg" alt="Download" width={25} height={25} loading="lazy" className="img-fluid" style={{ height: 'auto' }} />
                                                     </a>
                                                 </div>
                                                 <div className="code-stats">
                                                     {project.acf?.downloads && (
                                                         <div className="stat-item">
-                                                            <picture><img src="/images/home/downloads.svg" alt="Downloads" width="15" height="15" loading="lazy" /></picture>
+                                                            <Image src="/images/home/downloads.svg" alt="Downloads" width={15} height={15} loading="lazy" style={{ height: 'auto' }} />
                                                             <span>{project.acf.downloads}</span>
                                                         </div>
                                                     )}
                                                     {project.acf?.rating && (
                                                         <div className="stat-item">
-                                                            <picture><img src="/images/home/star-icon.svg" alt="Rating" width="15" height="15" loading="lazy" /></picture>
+                                                            <Image src="/images/home/star-icon.svg" alt="Rating" width={15} height={15} loading="lazy" style={{ height: 'auto' }} />
                                                             <span>{project.acf.rating}</span>
                                                         </div>
                                                     )}
@@ -154,9 +163,13 @@ const SourceCode = ({ sectionData, projects, taxonomies }: SourceCodeProps) => {
                                         <div className="bento-card bento-medium h-100">
                                             <div className="bento-image">
                                                 {getProjectImage(project) && (
-                                                    <img 
+                                                    <Image 
                                                         src={getProjectImage(project)} 
                                                         alt={project.title?.rendered || "Project Thumbnail"} 
+                                                        width={500}
+                                                        height={300}
+                                                        style={{ height: 'auto' }}
+                                                        unoptimized
                                                     />
                                                 )}
                                             </div>
@@ -175,22 +188,22 @@ const SourceCode = ({ sectionData, projects, taxonomies }: SourceCodeProps) => {
                                                 <div className="bento-footer">
                                                     <div className="bento-actions">
                                                         <Link href={`/source-code/${project.slug}`} className="icon-btn btn-view" title="View Details">
-                                                            <picture><img src="/images/home/view.svg" alt="View" width="25" height="25" loading="lazy" /></picture>
+                                                            <Image src="/images/home/view.svg" alt="View" width={25} height={25} loading="lazy" style={{ height: 'auto' }} />
                                                         </Link>
                                                         <a href={project.acf?.download_button || project.acf?.download_link || project.acf?.license_section?.download_link || "#"} className="icon-btn btn-download" title="Download Source" target="_blank" rel="noopener noreferrer">
-                                                            <picture><img src="/images/home/downloads.svg" alt="Download" width="25" height="25" loading="lazy" /></picture>
+                                                            <Image src="/images/home/downloads.svg" alt="Download" width={25} height={25} loading="lazy" style={{ height: 'auto' }} />
                                                         </a>
                                                     </div>
                                                     <div className="code-stats">
                                                         {project.acf?.downloads && (
                                                             <div className="stat-item">
-                                                                <picture><img src="/images/home/downloads.svg" alt="Downloads" width="15" height="15" loading="lazy" /></picture>
+                                                                <Image src="/images/home/downloads.svg" alt="Downloads" width={15} height={15} loading="lazy" style={{ height: 'auto' }} />
                                                                 <span>{project.acf.downloads}</span>
                                                             </div>
                                                         )}
                                                         {project.acf?.rating && (
                                                             <div className="stat-item">
-                                                                <picture><img src="/images/home/star-icon.svg" alt="Rating" width="15" height="15" loading="lazy" /></picture>
+                                                                <Image src="/images/home/star-icon.svg" alt="Rating" width={15} height={15} loading="lazy" style={{ height: 'auto' }} />
                                                                 <span>{project.acf.rating}</span>
                                                             </div>
                                                         )}
@@ -215,9 +228,7 @@ const SourceCode = ({ sectionData, projects, taxonomies }: SourceCodeProps) => {
                             <div className="cta-content-wrapper">
                                 <div className="cta-left">
                                     <div className="cta-badge">
-                                        <picture>
-                                            <img src={getImageUrl(sectionData?.cta_badge_icon) || ""} alt="Icon" width="15" height="15" loading="lazy" />
-                                        </picture>
+                                        <Image src={getImageUrl(sectionData?.cta_badge_icon) || "/images/home/star-icon.svg"} alt="Icon" width={15} height={15} loading="lazy" style={{ height: 'auto' }} unoptimized />
                                         <span>{sectionData?.cta_badge_text}</span>
                                     </div>
                                     <h3>
@@ -254,9 +265,7 @@ const SourceCode = ({ sectionData, projects, taxonomies }: SourceCodeProps) => {
                                         {sectionData?.cta_features?.map((feature, idx) => (
                                             <div key={idx} className="cta-visual-card">
                                                 <div className="cta-visual-icon">
-                                                    <picture>
-                                                        <img src={getImageUrl(feature.icon)} alt={feature.title} width="30" height="30" loading="lazy" />
-                                                    </picture>
+                                                        <Image src={getImageUrl(feature.icon) || "/images/home/star-icon.svg"} alt={feature.title} width={30} height={30} loading="lazy" style={{ height: 'auto' }} unoptimized />
                                                 </div>
                                                 <div className="cta-visual-text">
                                                     <strong>{feature.title}</strong>

@@ -104,7 +104,7 @@ const WidgetSearch = ({ posts }: { posts: WPBlogPost[] }) => {
                                 <line x1="11" y1="8" x2="11" y2="12"></line>
                                 <line x1="11" y1="16" x2="11.01" y2="16"></line>
                             </svg>
-                            <span>No posts found for "{query}"</span>
+                            <span>No posts found for &quot;{query}&quot;</span>
                         </div>
                     )}
                 </div>
