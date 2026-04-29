@@ -56,17 +56,6 @@ export async function getContactPage() {
         }
 
         return null;
-    }
-
-    const data: ContactPageData = await res.json();
-    const acf = data.acf;
-
-    if (!acf || Object.keys(acf).length === 0) {
-        console.warn("Contact page ACF is empty.");
-        return null;
-    }
-
-    return resolveMedia(acf, wpApiUrl);
   } catch (error) {
     console.error("Error fetching Contact page data:", error);
     return null;
